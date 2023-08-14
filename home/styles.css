@@ -1,0 +1,904 @@
+:root {
+     --light: #000;
+     --dark: #fff;
+     --gray: rgb(120, 116, 116);
+     --gray-border: rgb(207, 205, 205);
+     --spacer: 1rem;
+}
+
+body {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: sans-serif;
+     overflow-x: hidden;
+     background-color: #000;
+     color: white;
+     font-size: 25px;
+}
+
+
+.container {
+     margin: 0;
+     /* Remove any default margin from the container */
+}
+
+nav.top-banner {
+     margin: 0;
+
+     top: 0;
+     width: 100%;
+     z-index: 1;
+     background: var(--light);
+     /* Remove any default margin from the nav element */
+     border-bottom: 1px solid #f00000;
+     /* Add border as before */
+     /* Add shadow as before */
+
+}
+
+
+nav.top-banner h1 {
+     display: inline-block;
+     margin-right: 15px;
+     margin-left: 30px;
+     font-size: 20px;
+     font-family: sans-serif;
+     color: rgb(225, 0, 0);
+     font-weight: 900;
+     cursor: pointer;
+}
+
+nav.top-banner input {
+     margin-right: 20px;
+     font-size: 13px;
+     border-radius: 10px;
+     width: 150px;
+     border: 1px solid var(--gray-border);
+     margin-left: 5px;
+     background-color: 0px 0px 14px rgba(0, 0, 0, 0.2);
+     padding: 2px;
+     /* Adjust the value as per your preference */
+}
+
+nav.top-banner button:hover {
+     background-color: #403f3f;
+     color: #fff;
+}
+
+nav.top-banner button {
+     background-color: var(--light);
+     border-radius: 5px;
+     border: 1px solid var(--gray-border);
+     padding: 3px;
+     color: var(--gray);
+     cursor: pointer;
+     margin: 0 20px;
+     font-size: 13px;
+}
+
+.om-tiltel {
+     display: grid;
+     grid-template-columns: repeat(8, 1fr);
+     padding: 10px;
+     margin: 30px auto 0;
+     gap: 10px;
+     align-items: center;
+}
+
+.om-tiltel .card {
+     flex-grow: 1;
+     display: inline-block;
+     border-radius: 10px;
+     font-size: 10px;
+     padding: 10px;
+     background-color: #272727;
+     color: #ffffff;
+     min-width: 50px;
+     max-width: 50px;
+     max-height: 50px;
+     min-height: 50px;
+     box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.523);
+}
+
+.om-tiltel .card:hover {
+     box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.328);
+     cursor: pointer;
+
+}
+
+.om-tiltel .card p {
+     border-right: 1px solid rgb(255, 255, 255);
+}
+
+.body .introduction {
+     padding: 20px;
+}
+
+.body .introduction h1 {
+     font-weight: 800;
+     line-height: 1.6;
+     color: var(--dark);
+}
+
+.body .introduction h2 {
+     line-height: 1.3;
+     color: red;
+}
+
+.body .introduction p {
+     color: var(--gray)
+}
+
+.advertisement {
+     padding: 20px;
+}
+
+.advertisement-banner {
+     box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.2);
+}
+
+.advertisement-banner img {
+     cursor: grab;
+     width: 100%;
+     max-height: 400px;
+}
+
+.advertisement-banner h5 {
+     font-weight: 100;
+     font-size: 15px;
+     color: #403f3f;
+}
+
+.advertisement-banner Button {
+     background-color: rgb(180, 42, 42);
+     padding: 8px;
+     color: var(--light);
+     margin: 10px;
+     border: none;
+     border-radius: 10px;
+     width: 100px;
+     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+     cursor: pointer;
+}
+
+.advertisement-banner Button:hover {
+     background-color: rgb(157, 31, 31);
+     box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.exams-intro {
+     padding: 20px;
+}
+
+.exams h1 {
+     font-weight: 600;
+     text-decoration: solid;
+
+}
+
+.exams input {
+     padding: 7px;
+     margin: 0 0 10px 5px;
+     border: 1px solid red;
+}
+
+.Government-exams {
+     margin: 20px;
+     box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.2);
+     padding: 4px;
+}
+
+.Government-exams button {
+     background-color: var(--light);
+     border: 1px solid var(--gray-border);
+     padding: 20px;
+     border-end-end-radius: 10px;
+     border-start-start-radius: 10px;
+     font-size: 17px;
+     text-transform: uppercase;
+     color: red;
+     box-shadow: 1px 1px 1px 1px rgb(0, 0, 0, 0.2);
+     cursor: pointer;
+}
+
+.Government-exams li {
+     margin: 7px 0;
+}
+
+.Government-exams li a {
+     text-decoration: none;
+     color: var(--gray)
+}
+
+.Government-exams li a:hover {
+     color: var(--dark);
+}
+
+.exam-token {
+     padding: 10px;
+
+}
+
+.exam-token img {
+     min-height: 130px;
+     width: 100%;
+     border-radius: 50%;
+     cursor: pointer;
+}
+
+.exam-token .row {
+     /* Set the parent container to use flexbox */
+     display: flex;
+     flex-wrap: wrap;
+     /* Wrap the columns to the next line when necessary */
+     justify-content: space-between;
+     align-items: center;
+     /* Distribute the columns evenly on larger screens */
+}
+
+.exam-token .col {
+     /* Set the columns to take equal space */
+     flex: 1;
+     max-width: 30%;
+     min-width: 30%;
+     /* Limit the column width so that two columns can fit on smaller screens */
+     margin: 10px 20px;
+     text-align: center;
+     font-size: large;
+     color: var(--dark);
+     border: 0px solid var(--gray-border);
+     border-radius: 10px;
+     padding: 10px;
+     box-shadow: inset;
+     background-color: var(--light);
+     border-radius: 8px;
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.exam-token .col:hover {
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.exam-token .col p {
+     font-size: 14px;
+}
+
+.more-details {
+     padding: 20px;
+}
+
+.more-details .col {
+     padding: 10px;
+     text-align: left;
+     border: 1px solid #a0bcc1;
+     margin: 10px 0;
+     border-radius: 10px;
+}
+
+.focus-products {
+     margin: 20px;
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     gap: 10px;
+}
+
+.focus-products .col {
+     padding: 10px;
+     text-align: left;
+     border: 1px solid #a0bcc1;
+     margin: 10px 0;
+     border-radius: 10px;
+}
+
+.focus-products .col h4 {
+     font-size: 15px;
+}
+
+.focus-products .col p {
+     font-style: 12px;
+     color: var(--gray);
+}
+
+.focus-products .col h3 {
+     font-style: 20px;
+     text-decoration: underline;
+     color: red;
+     cursor: pointer;
+}
+
+.more-details .col h4 {
+     font-size: 15px;
+}
+
+.more-details .col p {
+     font-size: 12px;
+     color: var(--gray);
+}
+
+.more-details .col h3 {
+     font-size: 20px;
+     text-decoration: underline;
+     color: red;
+     cursor: pointer;
+}
+
+.subscription {
+     margin: 20px;
+     position: relative;
+     background: linear-gradient(to right, rgb(255, 115, 143), rgb(244, 217, 217));
+     padding: 1px 10px 10px;
+     border-radius: 30px;
+}
+
+.subscription h6 {
+     font-size: 13px;
+     color: var(--dark);
+}
+
+.subscription p {
+     font-size: 12px;
+     color: black;
+}
+
+.subscription button {
+     position: absolute;
+     top: 40px;
+     right: 20px;
+     padding: 5px;
+     background-color: red;
+     border: none;
+     color: var(--light);
+     border-radius: 15px;
+     cursor: pointer;
+}
+
+.subscription .row {
+     /* Set the parent container to use flexbox */
+     display: flex;
+     flex-wrap: wrap;
+     /* Wrap the columns to the next line when necessary */
+     justify-content: space-between;
+     align-items: center;
+}
+
+.subscription .row .col {
+     margin-top: 10px;
+     background-color: var(--light);
+     min-width: 30%;
+     max-width: 30%;
+     text-align: center;
+     border-radius: 10px;
+}
+
+.testimonials {
+     margin: 50px 20px;
+}
+
+.testimonials .comments {
+     margin-top: 70px;
+     padding: 20px;
+     box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials .comments .img-container {
+     width: 100px;
+     /* Set the desired width of the container */
+     height: 100px;
+     /* Set the desired height of the container */
+     overflow: hidden;
+     border-radius: 50%;
+     margin-right: 30px;
+     /* Crop the image that overflows the container */
+}
+
+.testimonials .comments .img-container img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     /* Crop the image to fit the container */
+}
+
+.testimonials .comments .row {
+     display: flex;
+     flex-wrap: wrap;
+}
+
+.about {
+     margin: 200px 20px 10px;
+}
+
+.extras {
+     width: 50px;
+     min-height: 40px;
+     border-radius: 50%;
+     background-color: #c9276b;
+     position: fixed;
+     z-index: 10;
+     bottom: 10px;
+     right: 10px;
+     color: white;
+     cursor: pointer;
+}
+
+.extras h1 {
+     font-size: 20px;
+     text-align: center;
+}
+
+.features {
+     font-size: 15px;
+}
+
+.time-table {
+     margin: 200px 20px 20px;
+}
+
+.time-table h4 {
+     padding: 3px;
+     border: 1px solid #a0bcc1;
+     display: inline;
+     border-radius: 3px;
+}
+
+span.collapse-bar {
+     display: none;
+}
+
+.popup-window {
+     display: none;
+}
+
+.popup-window ul li {
+     list-style-type: none;
+     padding: 1px 1px 2px 0;
+}
+
+.popup-window ul li a {
+     text-decoration: none;
+     color: var(--dark);
+}
+
+.popup-window ul li a:hover {
+     text-decoration: underline;
+}
+
+.popup-window-all-courses {
+     display: none;
+}
+
+
+.foot {
+     background-color: var(--dark);
+     color: var(--light);
+}
+
+footer {
+     margin: 100px 20px 50px;
+}
+
+footer button {
+     color: red;
+     margin-top: 20px;
+     border-radius: 10px;
+     padding: 0 20px;
+}
+
+footer button h1 {
+     font-weight: 800;
+}
+
+footer a {
+     color: red;
+}
+
+footer .end p {
+     opacity: 70%;
+}
+
+footer .end p:hover {
+     opacity: 100%;
+     cursor: pointer;
+}
+
+.copyright p {
+     margin-top: 20px;
+     margin-bottom: 10px;
+     align-items: center;
+     text-align: center;
+}
+
+footer ul li {
+     list-style-type: none;
+}
+
+footer ul li a {
+     color: white;
+     opacity: 80%;
+     text-decoration: none;
+}
+
+footer ul li a:hover {
+     opacity: 100%;
+}
+
+.real-footer {
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     height: 50px;
+     background-color: var(--light);
+     color: #000;
+}
+
+.real-footer ul {
+     display: flex;
+     flex-direction: row;
+}
+
+.real-footer ul li {
+     padding: 0 75px 0 0;
+     cursor: pointer;
+}
+
+/*  im[prtant */
+.media-scroller {
+     display: grid;
+     gap: 10px;
+     grid-auto-flow: column;
+     grid-auto-columns: 57%;
+     overflow-x: auto;
+     overscroll-behavior-inline: contain;
+     padding: 2px var(--spacer) var(--spacer);
+     margin: 100px 0 0 0;
+
+}
+
+
+
+.media-element {
+     display: grid;
+     padding: 10px;
+     grid-template-rows: min-content;
+
+     gap: var(--spacer);
+     background-color: #3c3c3c;
+     border-radius: 10px;
+     box-shadow: 1px 1px 1px rgb(254, 254, 254);
+     font-size: 13px;
+}
+
+.media-element>img {
+     inline-size: 100%;
+     aspect-ratio: 16/9;
+     object-fit: cover;
+}
+
+.snaps-inline {
+     scroll-snap-type: inline mandatory;
+     scroll-padding-inline: var(--spacer, 1rem);
+}
+
+/* selecting all the direct children to snap */
+.snaps-inline>* {
+     scroll-snap-align: start;
+
+}
+
+.blogs {
+     margin-top: 100px;
+     padding: 10px;
+     border-top: 2px solid red;
+     border-bottom: 2px solid red;
+     position: relative;
+}
+
+.blogs .card {
+     border: 2px solid limegreen;
+     padding: 10px;
+     margin: 10px;
+     display: flex;
+     gap: 10px;
+}
+
+.blogs .card .img-container {
+     min-height: 100px;
+     min-width: 100px;
+     max-height: 100px;
+     overflow: hidden;
+     max-width: 100px;
+}
+
+.width {
+     width: 100%;
+}
+
+.blogs .card img {
+     width: 100%;
+}
+
+.blogs p {
+     font-size: 13px;
+     text-align: left;
+     word-spacing: 1px;
+}
+
+.blogs div {
+     align-items: center;
+}
+
+.add-blog {
+     position: absolute;
+     top: 30px;
+     right: 10px;
+     background-color: #fff;
+     border: none;
+     color: #000;
+     font-size: 25px;
+     box-shadow: none;
+     cursor: pointer;
+     border-radius: 50%;
+     width: 30px;
+     height: 30px;
+}
+
+.content {
+     max-height: 3em;
+     /* Adjust this to show a few lines of text */
+     overflow: hidden;
+     position: relative;
+}
+
+.content p {
+     margin: 10px 0 0 0;
+     padding: 0;
+     overflow: hidden;
+     text-overflow: clip;
+     display: -webkit-box;
+     -webkit-line-clamp: 2;
+     /* Show two lines of text */
+     -webkit-box-orient: vertical;
+}
+
+.read-more {
+     display: inline-block;
+     text-align: right;
+     text-decoration: underline;
+     color: white;
+     font-size: 14px;
+}
+
+
+.blog-poster {
+     min-height: 700px;
+     min-width: 50%;
+     max-width: 70%;
+     background-color: #403f3f;
+     position: fixed;
+     top: 100px;
+     background-image: url(images/INDIAN\ ARMY.jpeg);
+     flex-direction: column;
+     padding: 100px 10px;
+}
+
+.blog-poster .content-creator {
+     display: contents;
+     position: relative;
+     top: 100px;
+}
+
+.blog-poster .content-creator input {
+     width: 50%;
+}
+
+#blog-content {
+     padding: 10px 0;
+     margin: 10px 0 20px 0;
+}
+
+#blog-image {
+     margin: 10px 0;
+}
+
+
+.blog-poster label {
+     display: block;
+     width: 50px;
+     background: #504c4b;
+     color: #fff;
+     padding: 12px;
+     border-radius: 5px;
+     cursor: pointer;
+     margin-bottom: 10px;
+}
+
+.blog-poster label:hover {
+     background-color: #3c3c3c;
+}
+
+
+/* for the chat
+ */
+
+.chat-body {
+     background-color: transparent;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: black;
+     position: fixed;
+     bottom: 50px;
+     right: 10px;
+}
+
+.chat-container {
+     width: 360px;
+     height: 80vh;
+     display: flex;
+     flex-direction: column;
+     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.4);
+     background-color: dodgerblue;
+}
+
+.chat-container .header h1 {
+     color: white;
+     padding: 15px;
+}
+
+.message {
+     background-color: dodgerblue;
+     padding: 10px;
+     color: white;
+     width: fit-content;
+     border-radius: 10px;
+     margin-bottom: 10px;
+}
+
+.user-message {
+     margin-left: auto;
+     background-color: white;
+     color: black;
+     padding: 10px;
+     width: fit-content;
+     border-radius: 10px;
+     margin-bottom: 10px;
+}
+
+.chat-container .footer form {
+     display: flex;
+}
+
+.chat-container .footer form input {
+     flex: 13;
+     height: 40px;
+     border: none;
+     outline: none;
+     padding-left: 5px;
+     font-size: 16px;
+}
+
+.chat-container .footer form button {
+     width: 100px;
+     font-size: 18px;
+     border: none;
+     outline: none;
+     background-color: dodgerblue;
+     color: white;
+     cursor: pointer;
+}
+
+.chat-container .footer form button:hover {
+     background-color: blue;
+     transition: 0.2s ease;
+}
+
+.chat-container .body {
+     flex: 1;
+     color: white;
+     background-color: rgba(0, 0, 0, 0.7);
+     padding: 20px 30px;
+}
+
+
+
+.hidden {
+     display: none;
+}
+
+.group-exams {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     font-size: 10px;
+     margin: 0 auto;
+     border: 1px solid #fff;
+}
+
+.group-exams h6 {
+     text-align: center;
+}
+
+.group-exams li {
+     padding-bottom: 10px;
+     cursor: pointer;
+}
+
+/* Add a media query for smaller screens, such as phones */
+@media screen and (max-width: 767px) {
+     nav.top-banner button {
+          margin: 0 5px 10px;
+
+     }
+
+     span.collapse-bar {
+
+
+          display: inline-block;
+          cursor: pointer;
+     }
+
+     .popup-window {
+          font-size: 15px;
+          position: fixed;
+          z-index: 10;
+          left: 2px;
+          top: 50px;
+          border: 1px solid #d4cece;
+          background: var(--light);
+          display: block;
+          padding: 0 10px 0 0;
+     }
+
+     .popup-window-all-courses {
+          font-size: 15px;
+          position: fixed;
+          left: 110px;
+          top: 120px;
+          display: block;
+          cursor: pointer;
+          border: 1px solid #a0bcc1;
+          padding: 10px;
+          z-index: 20;
+          background: var(--light);
+     }
+
+     .popup-window-all-courses ul li {
+          list-style-type: disc;
+     }
+
+     .popup-window-all-courses ul li:hover {
+          text-decoration: underline;
+     }
+
+     .popup-window-all-courses ul li a {
+          text-decoration: none;
+          color: var(--dark);
+
+     }
+
+     .hidden {
+          display: none;
+     }
+
+     .for-phone-buttons {
+          display: inline-block;
+          margin-top: 70px;
+          font-size: 10px;
+          padding: 0 20px;
+
+     }
+
+
+
+     .col {
+          max-width: 100%;
+          /* Make the columns take full width on smaller screens */
+     }
+
+     .om-tiltel {
+          grid-template-columns: repeat(3, 1fr);
+          padding-left: 40px;
+          align-items: center;
+
+     }
+}
