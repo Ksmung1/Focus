@@ -810,7 +810,7 @@ footer ul li a:hover {
      display: grid;
      grid-template-columns: repeat(3, 1fr);
      font-size: 10px;
-     margin: 0 auto;
+     margin: 0 5px;
      border: 1px solid #fff;
 }
 
@@ -821,6 +821,11 @@ footer ul li a:hover {
 .group-exams li {
      padding-bottom: 10px;
      cursor: pointer;
+}
+
+.group-exams li a {
+     text-decoration: none;
+     color: #fff;
 }
 
 /* Add a media query for smaller screens, such as phones */
