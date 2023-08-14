@@ -8,7 +8,7 @@
 
 body {
      margin: 0;
-     padding: 0;
+     padding: 0 20px;
      box-sizing: border-box;
      font-family: sans-serif;
      overflow-x: hidden;
@@ -547,11 +547,13 @@ footer ul li a:hover {
      display: grid;
      gap: 10px;
      grid-auto-flow: column;
-     grid-auto-columns: 57%;
+     height: 160px;
      overflow-x: auto;
      overscroll-behavior-inline: contain;
      padding: 2px var(--spacer) var(--spacer);
-     margin: 100px 0 0 0;
+     margin: 30px 20px 0;
+     overflow-y: hidden;
+
 
 }
 
@@ -561,12 +563,14 @@ footer ul li a:hover {
      display: grid;
      padding: 10px;
      grid-template-rows: min-content;
-
+     width: 300px;
      gap: var(--spacer);
      background-color: #3c3c3c;
      border-radius: 10px;
      box-shadow: 1px 1px 1px rgb(254, 254, 254);
      font-size: 13px;
+     max-height: 300px;
+     min-height: 50px;
 }
 
 .media-element>img {
@@ -806,6 +810,23 @@ footer ul li a:hover {
      display: none;
 }
 
+.group-a li,
+.group-b li,
+.group-c li {
+     list-style: none;
+}
+
+.group-a li:before,
+.group-b li:before,
+.group-c li:before {
+     content: '\2605';
+     /* Unicode character for a solid star */
+     color: yellow;
+     display: inline-block;
+     width: 1em;
+     margin-left: -1em;
+}
+
 .group-exams {
      display: grid;
      grid-template-columns: repeat(3, 1fr);
@@ -815,7 +836,9 @@ footer ul li a:hover {
 }
 
 .group-exams h6 {
-     text-align: center;
+     text-align: left;
+     font-size: 11px;
+     padding-left: 30px;
 }
 
 .group-exams li {
@@ -824,12 +847,22 @@ footer ul li a:hover {
 }
 
 .group-exams li a {
-     text-decoration: none;
+
      color: #fff;
+
+}
+
+.EXAMS {
+     margin: 30px 5px 10px;
+     color: red;
 }
 
 /* Add a media query for smaller screens, such as phones */
 @media screen and (max-width: 767px) {
+     body {
+          padding: 0;
+     }
+
      nav.top-banner button {
           margin: 0 5px 10px;
 
@@ -905,5 +938,10 @@ footer ul li a:hover {
           padding-left: 40px;
           align-items: center;
 
+     }
+
+     .group-exams h6 {
+          text-align: center;
+          padding: 0;
      }
 }
