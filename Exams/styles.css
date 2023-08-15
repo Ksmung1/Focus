@@ -1,6 +1,6 @@
 :root {
           --light: #fff;
-          --dark: #000;
+          --dark: #000000;
 }
 
 body {
@@ -38,6 +38,11 @@ body {
 
 tr td strong {
           text-transform: uppercase;
+}
+
+tr td ul {
+          margin: 10px;
+          padding: 0;
 }
 
 .exam-info-table {

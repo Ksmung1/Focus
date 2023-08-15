@@ -88,7 +88,7 @@ back.addEventListener('click', () => {
 const signupLogin = document.querySelector('.Signup-button');
 
 signupLogin.addEventListener('click', () => {
-          window.location.href = '../Login/login.html'
+          window.location.href = '../Focus/Login/login.html'
 });
 
 // for chat system

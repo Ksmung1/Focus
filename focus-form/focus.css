@@ -1,0 +1,119 @@
+body {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-size: 10px;
+          font-family: sans-serif;
+          color: white;
+          overflow-x: hidden;
+}
+
+.container {
+          background: linear-gradient(red, white);
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 100%;
+          height: 100vh;
+}
+
+.container h1 {
+          margin: 0 auto;
+          display: block;
+          text-align: center;
+          padding-top: 10px;
+}
+
+.chat-area {
+          width: 300px;
+          margin: 50px auto 10px;
+          height: 400px;
+          background: transparent;
+          /* Transparent white background */
+          border-radius: 10px;
+          /* Rounded corners for the glass effect */
+          padding: 10px;
+          backdrop-filter: blur(5px);
+          /* Apply a blur effect to create the glass effect */
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          /* Shadow for the glass effect */
+          max-width: 400px;
+          position: relative;
+          overflow: auto;
+}
+
+.input-area {
+          margin: 10px auto;
+          display: flex;
+          justify-content: center;
+}
+
+.input-area input {
+          color: white;
+          background: transparent;
+          border: 1px solid white;
+
+          border-radius: 10px;
+
+}
+
+::placeholder {
+          color: #fff;
+}
+
+input:focus {
+          outline: none;
+}
+
+.input-area button {
+          background: transparent;
+          border: 0.5px solid white;
+          border-radius: 10px;
+          margin-left: 10px;
+          ;
+}
+
+.chat-area .div {
+          display: block;
+}
+
+.chat-area .userMessage {
+          display: inline-block;
+          background: #25D366;
+          padding: 4px;
+          border-radius: 10px;
+          font-size: 13px;
+          position: relative;
+}
+
+.chat-area .notUserMessage {
+          display: inline-block;
+          background: #fff;
+          color: #000;
+          padding: 4px;
+          border-radius: 10px;
+          font-size: 13px;
+          position: relative;
+}
+
+.chat-area .separator .user {
+          position: relative;
+}
+
+.chat-area .right {
+          text-align: right;
+}
+
+.chat-area .left {
+          text-align: left;
+}
+
+@media screen and (max-width: 760px) {
+
+          .container {
+                    background: url('Discover\ Saint\ Lucia.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    width: 100%;
+                    height: 100vh;
+          }
+}

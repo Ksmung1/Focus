@@ -31,3 +31,43 @@ CDSselector.addEventListener('click', () => {
 
 
 
+const socket = new WebSocket('ws://https://focus-acad.netlify.app/');
+
+socket.addEventListener('open', (event) => {
+          console.log('Connected to server');
+});
+
+socket.addEventListener('message', (event) => {
+          const chatArea = document.getElementById('chat-area');
+          const message = event.data;
+          chatArea.innerHTML += `<p>${message}</p>`;
+});
+
+const sendButton = document.getElementById('send-button');
+const messageInput = document.getElementById('message-input');
+
+sendButton.addEventListener('click', () => {
+          const message = messageInput.value;
+          socket.send(message);
+          messageInput.value = '';
+});
+
+
+// Backend 
+const WebSocket = require('ws');
+const server = new WebSocket.Server({ port: 8080 });
+
+server.on('connection', (socket) => {
+          console.log('Client connected');
+
+          socket.on('message', (message) => {
+                    server.clients.forEach((client) => {
+                              if (client.readyState === WebSocket.OPEN) {
+                                        client.send(message);
+                              }
+                    });
+          });
+});
+
+
+
