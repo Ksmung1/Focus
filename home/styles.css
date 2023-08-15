@@ -1,6 +1,6 @@
 :root {
-     --light: #000;
-     --dark: #fff;
+     --light: #fff;
+     --dark: #000;
      --gray: rgb(120, 116, 116);
      --gray-border: rgb(207, 205, 205);
      --spacer: 1rem;
@@ -12,7 +12,7 @@ body {
      box-sizing: border-box;
      font-family: sans-serif;
      overflow-x: hidden;
-     background-color: #000;
+     background-color: rgb(91, 91, 243);
      color: white;
      font-size: 25px;
 }
@@ -92,13 +92,13 @@ nav.top-banner button {
      border-radius: 10px;
      font-size: 10px;
      padding: 10px;
-     background-color: #272727;
-     color: #ffffff;
+     background-color: #fff;
+     color: #000;
      min-width: 50px;
      max-width: 50px;
      max-height: 50px;
      min-height: 50px;
-     box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.523);
+     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.523);
 }
 
 .om-tiltel .card:hover {
@@ -108,7 +108,7 @@ nav.top-banner button {
 }
 
 .om-tiltel .card p {
-     border-right: 1px solid rgb(255, 255, 255);
+     border-right: 1px solid rgb(0, 0, 0);
 }
 
 .body .introduction {
@@ -577,6 +577,7 @@ footer ul li a:hover {
      inline-size: 100%;
      aspect-ratio: 16/9;
      object-fit: cover;
+     overflow: hidden;
 }
 
 .snaps-inline {
