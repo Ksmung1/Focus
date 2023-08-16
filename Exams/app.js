@@ -27,16 +27,16 @@ document.addEventListener("DOMContentLoaded", function () {
                                          </tr>
                                          <tr>
                                           <td><strong>  EXAM PATTERN</strong></td>
-                                          <td>Written Exam (Objective)<br> <br>Total Questions: 270<br>Total Marks: 900<ul><li>Maths: 33.3%</li> <li>GAT: 66.7% (Mostly Class 11 and 12)</li></td>
+                                          <td>Written Exam (Objective):<br> <br>Total Questions: 270<br>Full Marks
+
+
+: 900<br>Passing Marks: 355 (39%) <br>Marking Scheme: Maths (2.5 Marks per Question) & GAT (4 Marks per Question)<br>Negative Marking: -0.83 for Maths, -1.33 for GAT<ul><li>Maths: 120 Questions (33.3%)</li> <li>GAT: 150 Questions (66.7%) (Mostly Class 11 and 12)</li></td>
                                          </tr>
                                         <tr>
                                            <td><strong>Qualification</strong></td>
                                            <td>12th pass</td>
                                          </tr>
-                                         <tr>
-                                         <td><strong>Cut off</strong></td>
-                                         <td></td>
-                                       </tr>
+                                        
                                          <tr>
                                           <td><strong>Age limit</strong></td>
                                           <td>16.5 yrs - 19.5 yrs</td>
@@ -96,14 +96,11 @@ document.addEventListener("DOMContentLoaded", function () {
                                           <td><strong>  EXAM PATTERN</strong></td>
                                           <td>Written Examination: JEE Mains</td>
                                          </tr>
-                                        <tr>
+                                       
                                            <td><strong>Qualification</strong></td>
-                                           <td>12th pass</td>
+                                           <td>12th pass (PCM 70% min)</td>
                                          </tr>
-                                         <tr>
-                                          <td><strong>  cut off</strong></td>
-                                          <td></td>
-                                         </tr>
+                                      
                                          <tr>
                                           <td><strong>Age limit</strong></td>
                                           <td>16.5 yrs - 19.5 yrs</td>
@@ -150,11 +147,11 @@ document.addEventListener("DOMContentLoaded", function () {
                               <table class="exam-info-table">
                                          <tr>
                                            <td><strong>Exam name</strong></td>
-                                           <td>Agnipat / Agniveer</td>
+                                           <td>Agnipath / Agniveer</td>
                                          </tr>
                                          <tr>
                                           <td><strong>Frequency of Exam</strong></td>
-                                          <td>Once a year</td>
+                                          <td>Once a year (April)</td>
                                          </tr>
                                          <tr>
                                            <td><strong>Selection process</strong></td>
@@ -162,16 +159,18 @@ document.addEventListener("DOMContentLoaded", function () {
                                          </tr>
                                          <tr>
                                           <td><strong>  EXAM PATTERN</strong></td>
-                                          <td>Written Exam (Objective) <br><br>Total Questions: 50 <br>Total marks: 100<br><p><ul><li>General Knowledge: 15 Questions (30%) <li> General Science: 20 Questions (40%) </li>Maths: 10 Questions (20%) <li>Logical Reasoning: 5 Questions (10%)</li></ul></td>
+                                          <td>
+                                          Written Exam (Objective): <br><br>Total Questions: 50 <br>Full Marks
+: 100<br>Passing Marks: 80<br>Marking Scheme: 2 marks for each correct answer <br> Negative Marking: -0.5 marks for each incorrect answer<p>
+                                          <ul><li>General Knowledge: 15 Questions (30%) <li> General Science: 20 Questions (40%) </li>Maths: 10 Questions (20%) <li>Logical Reasoning: 5 Questions (10%)</li></ul>
+                                          </td>
                                          </tr>
+                      
                                         <tr>
                                            <td><strong>Qualification</strong></td>
                                            <td>10th pass</td>
                                          </tr>
-                                         <tr>
-                                           <td><strong>Cut off</strong></td>
-                                           <td>50 marks (50%)</td>
-                                         </tr>
+                                        
                                          <tr>
                                           <td><strong>Age limit</strong></td>
                                           <td>17.5 yrs - 23 yrs</td>
@@ -229,7 +228,10 @@ document.addEventListener("DOMContentLoaded", function () {
                                          </tr>
                                          <tr>
                                           <td><strong>EXAM PATTERN</strong></td>
-                                          <td>Computer Based Test-CBT (Objective type)<p></p> Total Questions: 80 <br> Total Marks: 160:<p>
+                                          <td>Computer Based Test-CBT (Objective type)<p></p> Total Questions: 80 <br> Full Marks: 160 <br> Passing Marks: 54 - 76 Marks<br>Marking Scheme: 2 Marks for each correct answer <br> Negative Marking: -0.50 marks for each incorrect answer
+
+
+<p>
                                           <ul>
                                           <li>General Intelligence and <span styles='margin-left: 45px'>Reasoning</span>: 20 Questions (25%)</li>
                                           <li>General Knowledge and General Awareness: 20 Questions (25%)</li>
@@ -238,32 +240,19 @@ document.addEventListener("DOMContentLoaded", function () {
                                           </ul>
                                           </td>
                                          </tr>
-                                         <tr>
-                                         <td><strong>Cut off</strong></td>
-                                         <td>
-                                         <ul>
-                                         <li>General: 65-78 Marks (48%)</li>
-                                         <li>OBC: 63-77 Marks (48%)</li>
-                                         <li>EWS: 62-75 Marks (46%)</li>
-                                         <li>SC: 62-70 Marks (43%)</li>
-                                         <li>ST: 55-65 Marks (40%)</li>
-                                         <li>Ex-servicemen: 45-55 Marks (34%)</li>
-                                         </ul>
-                                         
-                                         </td>
-                                       </tr>
+                                        
                                         <tr>
                                            <td><strong>Qualification</strong></td>
                                            <td>10th pass</td>
                                          </tr>
                                          <tr>
                                           <td><strong>Age limit</strong></td>
-                                          <td>18 yrs - 23 yrs</td>
+                                          <td>18 yrs - 23 yrs (+5 age relaxation for reserved categories)</td>
                                          </tr>
                                         
                                          <tr>
                                          <td><strong>Vacancy</strong></td>
-                                          <td>45000</td>
+                                          <td>50000</td>
                                         </tr>
                                         <tr>
                                         <td><strong>post</strong></td>
@@ -295,43 +284,54 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   else if (section === 'agniveerTechnical') {
     console.log('agniveerTechnical');
-    const capfelements = [{
+    const technicalelements = [{
 
-      title: 'UPSC CAPF',
+      title: 'Agniveer Technical Exam',
       imgURL: 'images/Picsart_23-08-14_21-26-51-369.jpg',
       paragraph: `<div class=pbox>
                               <table class="exam-info-table">
                                          <tr>
                                            <td><strong>Exam name</strong></td>
-                                           <td>CAPF</td>
+                                           <td>Agniveer Technical</td>
                                          </tr>
                                          <tr>
                                           <td><strong>Frequency of Exam</strong></td>
-                                          <td>Once a year</td>
-                                         </tr>
+                                          <td>Once a year (April)</td>
+techx                                         </tr>
                                          <tr>
                                            <td><strong>Selection process</strong></td>
-                                           <td>Written Test and SSB Interview</td>
+                                           <td><ul><li>Common Entrance Exam (CEE)</li><li>Physical Fitness Test</li><li>Medical Test</li></ul> </td>
                                          </tr>
                                          <tr>
                                           <td><strong>  EXAM PATTERN</strong></td>
-                                          <td>Maths: 33.3%, GAT: 66.7% (Highly Class 11 and 12)</td>
-                                         </tr>
-                                        <tr>
-                                           <td><strong>Qualification</strong></td>
-                                           <td>12th pass</td>
+                                          <td>Written Exam (Objective): CEE <br><br>
+                                          Total Questions: 50<br>Full Marks
+
+
+: 200<br>Passing Marks: 80 <br> Marking Scheme: 4 marks for each correct answer<br> Negative Marking: -1 marks for each incorrect answer<br>
+                                          <ul><li>General Knowledge: 10 Questions (20 %)</li><li>Mathematics: 15 Questions (30%)</li><li>Physics: 15 Questions (30%)</li><li>Chemistry: 10 Questions (20%)</li></ul></td>
                                          </tr>
                                          <tr>
+                                        <tr>
+                                           <td><strong>Qualification</strong></td>
+                                           <td>12th pass (With Physics, Chemistry, Maths and English)</td>
+                                         </tr>
+                                         
+                                         <tr>
                                           <td><strong>Age limit</strong></td>
-                                          <td>16.5 yrs - 19.5 yrs</td>
+                                          <td>17.5 yrs - 23 yrs</td>
                                          </tr>
                                          <tr>
                                           <td><strong>Vacancy</strong></td>
-                                           <td>395 (NDA & NA 2 2023)</td>
+                                           <td>40000 approx. (Agnipath Scheme)</td>
                                          </tr>
                                          <tr>
+                                         <td><strong>post</strong></td>
+                                         <td>Agniveer Technical</td>
+                                        </tr>
+                                         <tr>
                                            <td><strong>Salary</strong></td>
-                                           <td>Rs.56100 - Rs.177500</td>
+                                           <td>Rs.30000 - Rs.40000</td>
                                          </tr>
                                         </table>
 </div>`
@@ -339,7 +339,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     ];
-    const capfContent = capfelements.map(element => `
+    const technicalContent = technicalelements.map(element => `
                               <div class='card'>
                               <div>
                                         <h2>${element.title}</h2>
@@ -350,48 +350,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    container.innerHTML = (`<div class='ndapage'> ${capfContent}</div>`
+    container.innerHTML = (`<div class='ndapage'> ${technicalContent}</div>`
     )
   }
   else if (section === 'agniveerClerk') {
     console.log('agniveerClerk')
     const capfelements = [{
 
-      title: 'UPSC CAPF',
+      title: 'Agniveer Clerk Exam',
       imgURL: 'images/Picsart_23-08-14_21-26-51-369.jpg',
       paragraph: `<div class=pbox>
                               <table class="exam-info-table">
                                          <tr>
                                            <td><strong>Exam name</strong></td>
-                                           <td>CAPF</td>
+                                           <td>Agniveer Clerk</td>
                                          </tr>
                                          <tr>
                                           <td><strong>Frequency of Exam</strong></td>
-                                          <td>Once a year</td>
+                                          <td>Once a year (April)</td>
                                          </tr>
                                          <tr>
                                            <td><strong>Selection process</strong></td>
-                                           <td>Written Test and SSB Interview</td>
+                                           <td><ul><li>Common Entrance Exam (CEE)</li><li>Physical Fitness Test</li><li>Medical Test</li></ul> </td>
                                          </tr>
                                          <tr>
                                           <td><strong>  EXAM PATTERN</strong></td>
-                                          <td>Maths: 33.3%, GAT: 66.7% (Highly Class 11 and 12)</td>
+                                          <td>
+                                          Written Exam (Objective): CEE <br><br>
+                                          Total Questions: 50<br>Full Marks
+
+
+: 200<br>Passing Marks: 80 <br> Marking Scheme: 4 marks for each correct answer<br> Negative Marking: -1 marks for each incorrect answer<br> <br>
+                                          Part 1:<ul><li>General Knowledge: 5 Questions (10 %)</li><li>General Science: 5 Questions (10%)</li><li>Mathematics: 10 Questions (20%)</li><li>Computer Science: 5 Questions (10%)</li></ul>Part 2:<ul><li>General English: 25 Questions (50%)</li></ul>
+
+                                          
+                                          </td>
                                          </tr>
+                     
                                         <tr>
                                            <td><strong>Qualification</strong></td>
-                                           <td>12th pass</td>
+                                           <td>12th pass (Any Stream)</td>
                                          </tr>
                                          <tr>
                                           <td><strong>Age limit</strong></td>
-                                          <td>16.5 yrs - 19.5 yrs</td>
+                                          <td>17.5 yrs - 23 yrs</td>
                                          </tr>
                                          <tr>
                                           <td><strong>Vacancy</strong></td>
-                                           <td>395 (NDA & NA 2 2023)</td>
+                                           <td>40000 (Agnipath Scheme)</td>
                                          </tr>
                                          <tr>
+                                         <td><strong>post</strong></td>
+                                          <td>Agniveer Clerk</td>
+                                        </tr>
+
+                                         <tr>
                                            <td><strong>Salary</strong></td>
-                                           <td>Rs.56100 - Rs.177500</td>
+                                           <td>Rs.30000 - Rs.40000</td>
                                          </tr>
                                         </table>
 </div>`
@@ -436,12 +451,14 @@ document.addEventListener("DOMContentLoaded", function () {
                                          </tr>
                                          <tr>
                                           <td><strong>  EXAM PATTERN</strong></td>
-                                          <td>Written (Objective type)<br><br>Total Questions: 340 <br> 300 Marks<br><ul><li>English: 33.2% </li> <li>General Knowledge: 33.2% </li><li>Elementary Mathematics: 33.6% (Mostly 10th level)</li></ul></td>
+                                          <td>Written (Objective type)<br><br>Total Questions: 340 <br> Total Marks: 300<br>Passing Marks: 140 (46%)<br>Marking Scheme: English 0.83 Marks,General Knowledge 0.83 Marks, Maths 1 Mark<br>Negative Marking: -0.27 Marks for English & Gk and -1 Mark for Maths<ul><li>English: 120 Questions (33.2%) </li> <li>General Knowledge: 120 Questions (33.2%) </li><li>Elementary Mathematics: 100 Questions(33.6%) (Mostly 10th level)</li></ul></td>
                                          </tr>
+                          
                                         <tr>
                                            <td><strong>Qualification</strong></td>
                                            <td>Graduate</td>
                                          </tr>
+                                        
                                          <tr>
                                           <td><strong>Age limit</strong></td>
                                           <td>19 yrs - 25 yrs</td>
@@ -500,19 +517,21 @@ document.addEventListener("DOMContentLoaded", function () {
                                          </tr>
                                          <tr>
                                           <td><strong>  EXAM PATTERN</strong></td>
-                                          <td>Paper 1 (Objective) <br><br>Total Questions: 125 <br>Total Marks: 250 Marks <ul><li>General Ability & Intelligence</li></ul>
+                                          <td>Paper 1 (Objective) <br><br>Total Questions: 125 <br>Full Marks
+
+
+: 250 Marks<br>Passing Marks (Qualifying): 120 - 125 Marks<br>Marking Scheme: 2 marks for each correct answer<br>Negative Marking: -0.66 marks for each incorrect answer<ul><li>General & Mental Ability</li></ul>
                                           <br>
-                                              Paper 2 (Descriptive) <br><br>Total Questions: 6 <br> Total Marks = 200<br><br> <ul><li>General Studies</li> <li>Essay & Comprehension</li></ul>
+                                              Paper 2 (Descriptive) <br><br>Total Questions: 6 <br> Full Marks
+ = 200<br>Passing Marks: Minimum 25%<br>Marking Scheme: 33.3 marks for each correct answer<br>Negative Marking: Nil<ul><li>General Studies</li> <li>Essay & Comprehension</li></ul>
                                           </td>
                                          </tr>
+                                     
                                         <tr>
                                            <td><strong>Qualification</strong></td>
                                            <td>Graduate</td>
                                          </tr>
-                                         <tr>
-                                           <td><strong>Cut off</strong></td>
-                                           <tr></td>
-                                         </tr>
+                                       
                                          <tr>
                                           <td><strong>Age limit</strong></td>
                                           <td>20 yrs - 25 yrs (+5 years relaxation for reserved categories)</td>
@@ -568,8 +587,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                          </tr>
                                          <tr>
                                           <td><strong>  EXAM PATTERN</strong></td>
-                                          <td>Written Exam<br><br> Total Questions: 100<br>Total Marks: 300 Marks<ul> <li>Generel Awareness: 25%</li> <li>English: 30%</li><li> Numerical Ability: 20%</li> <li>Reasoning and Military Aptitude Test: 25%<</li></ul></td>
+                                          <td>Written Exam<br><br> Total Questions: 100<br>Full Marks
+
+
+: 300<br>Passing Marks: 140-190 marks<br>Marking Scheme: 3 marks for each correct answer<br> Negative Markings: -1 mark for each incorrect answer<ul> <li>Generel Awareness: 25 Questions (25%)</li> <li>English: 30 Questions (30%)</li><li> Numerical Ability: 20 Questions (20%)</li> <li>Reasoning and Military Aptitude Test: 25 Questions (25%)</li></ul></td>
                                          </tr>
+                                       
                                         <tr>
                                            <td><strong>Qualification</strong></td>
                                            <td><ul><li>60% in Maths and Physics in 10+2</li> <li> Graduate</li></td>
@@ -632,20 +655,21 @@ document.addEventListener("DOMContentLoaded", function () {
                                          <tr>
                                           <td><strong>  EXAM PATTERN</strong></td>
                                           <td>
-                                          Tier 1: <br><br>Total Questions = 100 <br>Total Marks: 100 <ul><li>English: 20 Questions (20%)</li><li>Numerical/Analytical/Logical Ability & Reasoning: 20 Questions (20%)</li> <li>Quantitive Aptitude: 20 Questions (20%)</li> <li>General Studies: 20 Questions (20%)</li> <li> General Awareness: 20 Questions(20%)</li></ul>
+                                          Tier 1: <br><br>Total Questions = 100 <br>Full Marks
+
+
+: 100<br>Passing Marks (Qualifying): 33-35<br>Marking Scheme: 1 mark for each correct answer<br> Negative Marking: -0.25 marks for each incorrect answer <ul><li>English: 20 Questions (20%)</li><li>Numerical/Analytical/Logical Ability & Reasoning: 20 Questions (20%)</li> <li>Quantitive Aptitude: 20 Questions (20%)</li> <li>General Studies: 20 Questions (20%)</li> <li> General Awareness: 20 Questions(20%)</li></ul>
                                            <p></p>
                                              Tier 2:<br><p><ul><li>Essay: 60%</li> <li>English Comprehension and precis writing: 40% </li></ul> <p></p>
                                               Tier 3: <ul><li>Interview</li></ul></td>
                                              
                                          </tr>
+                                     
                                         <tr>
                                            <td><strong>Qualification</strong></td>
                                            <td>Graduate</td>
                                          </tr>
-                                         <tr>
-                                           <td><strong>cut off</strong></td>
-                                           <td></td>
-                                         </tr>
+                                        
                                          <tr>
                                           <td><strong>Age limit</strong></td>
                                           <td>18 yrs - 27 yrs (+5 age relaxation for reserved categories)</td>
@@ -704,12 +728,15 @@ document.addEventListener("DOMContentLoaded", function () {
                                          </tr>
                                          <tr>
                                           <td><strong>  EXAM PATTERN</strong></td>
-                                          <td>Tier 1:<br><br> Total Questions: 200<br>Total Marks: 200:<br> <ul><li>General Intelligence and Reasoning: 50 Questions (25%)</li> <li>General Awareness and Knowledge: 50 Questions (25%) </li><li>Quantitative Aptitude: 50 Questions (25%) </li><li>English language: 50 Questions (25%)</li></ul><br>Tier 2:<br><br> Total Questions: 200<br> Total Marks: 200<br><ul><li> English Language and Comprehension </li></ul> </td>
+                                          <td>Tier 1: Paper 1<br><br> Total Questions: 200<br>Full Marks
+
+
+: 200:<br>Passing Marks (Qualifying): 78-102<br> Marking Scheme: 1 mark for each correct answer<br>Negative Marking: -0.33 marks for each incorrect answer <ul><li>General Intelligence and Reasoning: 50 Questions (25%)</li> <li>General Awareness and Knowledge: 50 Questions (25%) </li><li>Quantitative Aptitude: 50 Questions (25%) </li><li>English language: 50 Questions (25%)</li></ul><br>Tier 2: Paper 2<br><br> Total Questions: 200<br> Full Marks
+
+
+: 200<br>Passing Marks: 113-153 (Paper 1 + Paper 2)<ul><li> English Language and Comprehension </li></ul> </td>
                                          </tr>
-                                        <tr>
-                                           <td><strong>Qualification</strong></td>
-                                           <td>Graduate</td>
-                                         </tr>
+                                   
                                          <tr>
                                          <td><strong>Qualification</strong></td>
                                          <td>Graduate</td>
