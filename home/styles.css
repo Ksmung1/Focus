@@ -62,7 +62,6 @@ nav.top-banner input {
 }
 
 nav.top-banner button:hover {
-     background-color: #403f3f;
      color: #fff;
 }
 
@@ -707,6 +706,19 @@ footer ul li a:hover {
 
 header {
      padding: 20px;
+}
+
+.top-banner button a {
+     text-decoration: none;
+     color: none;
+     background-color: transparent;
+     border: none;
+}
+
+.top-banner button a:hover {
+     background-color: #fff;
+     color: #000;
+     border: none;
 }
 
 /* Add a media query for smaller screens, such as phones */
