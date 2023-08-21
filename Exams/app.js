@@ -2,47 +2,7 @@ const container = document.querySelector('.container');
 const body = document.querySelector('body');
 const examContainer = document.getElementById('exam-container');
 
-examContainer.innerHTML = `  <h6 class="EXAMS">DEFENCE EXAMS</h6>
-<div class="group-exams">
 
-          <div class="group-a">
-                    <h6>Group-A <br><span style="font-size: 10px; font-weight: 400;">
-                                        (10th
-                                        pass)</span></h6>
-
-                    <ul>
-                              <li><a href="index.html?section=agniveer">Agniveer GD</a>
-                              </li>
-                              <li><a href="index.html?section=sscGd">SSC GD</a></li>
-                    </ul>
-          </div>
-          <div class="group-b">
-                    <h6>Group-B<br><span style="font-size: 10px; font-weight: 400;"> (12th
-                                        Pass)</span></h6>
-                    <ul>
-                              <li><a href="index.html?section=nda">NDA & NA</a></li>
-                              <li><a href="index.html?section=armyTes">ARMY TES</a></li>
-                              <li><a href="index.html?section=agniveerTechnical">Agniveer
-                                                  Technical
-                                        </a></li>
-
-                              <li><a href="index.html?section=agniveerClerk">Agniveer
-                                                  Clerk</a>
-                              </li>
-                    </ul>
-          </div>
-          <div class="group-c">
-                    <h6>Group-C<br><span style="font-size: 10px; font-weight: 400;">
-                                        (Graduate)</span></h6>
-                    <ul>
-                              <li><a href="index.html?section=cds">CDS</a></li>
-                              <li><a href="index.html?section=capf">CAPF</a></li>
-                              <li><a href="index.html?section=afcat">AFCAT</a></li>
-                              <li><a href="index.html?section=ib">IB ACIO</a></li>
-                              <li><a href="index.html?section=ssc">SSC CPO</a></li>
-                    </ul>
-          </div>
-</div>`
 
 document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
@@ -838,3 +798,7 @@ techx                                         </tr>
   }
 
 });
+
+function buyCourse(product) {
+  window.location.href = `../index.html?purchased=$(product)`;
+}

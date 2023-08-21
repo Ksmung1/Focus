@@ -118,61 +118,38 @@ const replies = {
 };
 
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', () => {
           const urlParams = new URLSearchParams(window.location.search);
           const section = urlParams.get('section');
-
-
+          const purchasedProduct = urlParams.get('purchased');
 
           if (section === 'profile') {
+                    const body = document.querySelector('body');
+                    body.innerHTML = `
+          <!-- Your profile content here -->
+        `;
+          }
 
+          const purchasedContent = document.getElementById('purchasedContent');
+          const otherContent = document.getElementById('otherContent');
 
-                    const body = document.querySelector('body')
-                    body.innerHTML = `<div>
-                    <header><h3>FOCUS</h3> <p></p ></header >
-                    
-                    <div class="subscription">
-                    <div class="items">
-                              <div class="card">
-                                        <p><a href="Exams/index.html?section=gsHistory">His</a></p>
-                              </div>
-                              <div class="card" style="background-color: rgb(87, 87, 255);">
-                                        <p><a href="Exams/index.html?section=gsPolitics">Pol</a></p>
-                              </div>
-                              <div class="card" style="background-color:brown">
-                                        <p><a href="Exams/index.html?section=gsMaths">Maths</a></p>
-                              </div>
-                              <div class="card" style="background-color: green">
-                                        <p><a href="Exams/index.html?section=gsChemistry">Chem</a></p>
-                              </div>
-                              <div class="card " style="background-color: yellow">
-                                        <p><a href="Exams/index.html?section=gsGK">GK</a></p>
-                              </div>
+          if (purchasedProduct === 'pencil') {
+                    purchasedContent.innerHTML = "<p>You have purchased a pencil!</p>";
+                    purchasedContent.style.display = 'block';
+                    otherContent.style.display = 'none';
+          } else if (purchasedProduct === 'pen') {
+                    purchasedContent.innerHTML = "<p>You have purchased a pen!</p>";
+                    purchasedContent.style.display = 'block';
+                    otherContent.style.display = 'none';
+          } else {
+                    otherContent.style.display = 'block';
+                    purchasedContent.style.display = 'none';
+          }
 
-                    </div>
-                    <h6>One Stop Solution <br>For All Exam Preparation</h6>
-                    <p>Mock tests, Personal Development, Career guidance <br>& Motivation
-                              in one
-                              package
-                    </p>
-                    <button type="button">Purchase</button>
-                    <div class="row">
-                              <div class="col">
-                                        <h6>100+</h6>
-                                        <p>Classes</p>
-                              </div>
-                              <div class="col">
-                                        <h6>1+</h6>
-                                        <p>Mock tests</p>
-                              </div>
-                              <div class="col">
-                                        <h6>Many</h6>
-                                        <p>Booster Tests</p>
-                              </div>
-                    </div>
-          </div>
-                    <button> <a href='quiz/quiz.html'>Start Quiz<a></button>
-
-                    </div > `
+          // Function to handle purchase logic
+          function buyCourse(product) {
+                    // Your purchase logic here
           }
 });
+
+
