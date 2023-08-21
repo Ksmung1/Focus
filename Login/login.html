@@ -17,7 +17,7 @@
                                         <h2 class="logTitle">Login</h2>
                                         <div class="input-box hidden" id="inputBox">
                                                   <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                                                  <input type="text" id="username" required>
+                                                  <input type="text" id="username">
                                                   <label>Username</label>
                                         </div>
                                         <div class="input-box">
@@ -39,8 +39,9 @@
 
 
                                         <div class="register-link">
-                                                  <p class="pContent">Don't have an account?<a href="#"
-                                                                      class="registerButton">Register</a></p>
+                                                  <p class="pContent">
+                                                  </p><a href="#" class="registerButton" style="color:white"></a>
+
                                         </div>
 
                               </form>
@@ -48,11 +49,13 @@
           </section>
           <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
           <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
           <script type='module'>
 
 
                     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
-                    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
+                    import { getDatabase, set, ref, get } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js';
+                    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
 
                     document.addEventListener('DOMContentLoaded', () => {
                               // Your JavaScript code here
@@ -72,75 +75,126 @@
                               // Initialize Firebase
                               const app = initializeApp(firebaseConfig);
                               const auth = getAuth(app);
+                              const database = getDatabase(app);
 
                               const register = document.getElementById('register');
                               const login = document.getElementById('login');
                               const registerButton = document.querySelector('.registerButton');
+                              registerButton.textContent = 'Register'
+                              const pContent = document.querySelector('.pContent')
+                              pContent.textContent = "Don't have an Account?"
 
-                              console.log(login, register)
                               registerButton.addEventListener('click', () => {
-                                        register.classList.toggle('hidden');
-                                        login.classList.toggle('hidden');
                                         console.log('clicked');
+                                        login.classList.toggle('hidden')
+                                        register.classList.toggle('hidden')
                                         const logTitle = document.querySelector('.logTitle');
                                         if (logTitle.textContent === 'Login') {
                                                   logTitle.textContent = 'Signin';
+                                                  pContent.textContent = "Already have an account?"
+                                                  registerButton.textContent = 'Login'
+                                                  inputBox.classList.remove('hidden')
+
                                         } else {
                                                   logTitle.textContent = 'Login';
+                                                  pContent.textContent = "Don't have an account?"
+                                                  registerButton.textContent = 'Sign up';
+                                                  inputBox.classList.toggle('hidden')
+
+
                                         }
-                                        // Assuming that the parent element containing the .pContent element is named .contentContainer
-                                        const contentContainer = document.querySelector('.contentContainer');
-
-                                        contentContainer.addEventListener('click', (event) => {
-                                                  if (event.target.classList.contains('registerButton')) {
-                                                            const pContent = document.querySelector('.pContent');
-                                                            if (pContent.textContent.includes("Don't have an account?")) {
-                                                                      pContent.innerHTML = `Already have an account?<a href="#" class="registerButton">Login</a>`;
-                                                            } else {
-                                                                      pContent.innerHTML = `Don't have an account?<a href="#" class="registerButton">Register</a>`;
-                                                            }
-                                                  }
-                                        });
-
-
-
                               });
 
 
-                              createUserWithEmailAndPassword(auth, email, password)
-                                        .then((userCredential) => {
-                                                  const user = userCredential.user;
+                              // Create a new User 
+                              let username = ''
+                              // Import necessary Firebase modules and initialize Firebase
 
-                                                  // Update user's profile with the provided username
-                                                  updateProfile(user, { displayName: username })
-                                                            .then(() => {
-                                                                      console.log('Username updated:', username);
-                                                                      // Save username to the Firebase database
-                                                                      const userRef = ref(database, 'users/' + user.uid);
-                                                                      set(userRef, {
-                                                                                username: username,
-                                                                                email: email
-                                                                      }).then(() => {
-                                                                                console.log('Username saved to the database');
-                                                                      }).catch((error) => {
-                                                                                console.error('Error saving username to database:', error.message);
+                              // Assuming you've properly imported and initialized Firebase auth and database
+
+                              // Create an event listener for the registration button
+                              // Inside the register event listener
+                              register.addEventListener('click', () => {
+                                        // ... (existing code for user registration)
+                                        const email = document.getElementById('email').value;
+                                        const password = document.getElementById('password').value;
+                                        username = document.getElementById('username').value;
+                                        console.log(username)
+
+                                        createUserWithEmailAndPassword(auth, email, password)
+                                                  .then((userCredential) => {
+                                                            const user = userCredential.user;
+
+                                                            // Store user data in the Realtime Database
+                                                            const userRef = ref(database, 'users/' + user.uid);
+                                                            const userData = {
+                                                                      username: username,
+                                                                      email: email
+                                                            };
+
+                                                            set(userRef, userData)
+                                                                      .then(() => {
+                                                                                console.log('User data saved to Realtime Database');
+                                                                                // Redirect to another page or perform other actions
+                                                                      })
+                                                                      .catch((error) => {
+                                                                                console.error('Error saving user data:', error);
                                                                       });
-                                                            })
-                                                            .catch((error) => {
-                                                                      console.error('Error updating username:', error.message);
-                                                            });
-                                        })
-                                        .catch((error) => {
-                                                  console.error('Registration error:', error.message);
-                                        });
+
+                                                            console.log('Registration successful');
+                                                            // Redirect to another page or perform other actions
+                                                  })
+                                                  .catch((error) => {
+                                                            console.error('Registration error:', error.message);
+                                                  });
+
+                                        // ... (rest of the code)
+                              });
+
+                              login.addEventListener('click', (e) => {
+                                        e.preventDefault()
+                                        const email = document.getElementById('email').value;
+                                        const password = document.getElementById('password').value;
+                                        console.log('click');
+
+                                        // Sign in the user with email and password
+                                        signInWithEmailAndPassword(auth, email, password)
+                                                  .then((userCredential) => {
+                                                            const user = userCredential.user;
+                                                            const uid = user.uid;
+
+                                                            // Retrieve the username from the database or any other source
+                                                            // For example, if you're using Firebase Realtime Database:
+                                                            const userRef = ref(database, 'users/' + uid);
+                                                            get(userRef)
+                                                                      .then((snapshot) => {
+                                                                                if (snapshot.exists()) {
+                                                                                          const userData = snapshot.val();
+                                                                                          const username = userData.username;
+
+                                                                                          console.log('User logged in:', username);
+                                                                                          window.location.href = '../index.html?section=profile';
+                                                                                } else {
+                                                                                          console.log('User data not found');
+                                                                                }
+                                                                      })
+                                                                      .catch((error) => {
+                                                                                console.error('Error fetching user data:', error);
+                                                                      });
+                                                  })
+                                                  .catch((error) => {
+                                                            console.log('Error signing in:', error);
+                                                            window.location.href = '../index.html';
+                                                  });
+
+                              });
+
 
 
                     });
 
 
-          </script>
-          <script src="js/login.js">
-                    1
+
           </script>
 </body>
 

@@ -12,10 +12,128 @@
 
 <body>
           <div class="container">
+                    <div id="exam-container">
 
+                    </div>
           </div>
 
           <script src="app.js"></script>
+          <script type="module">
+                    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+                    import { getFirestore, collection, addDoc, getDocs, setDoc, doc } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js';
+                    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
+
+                    document.addEventListener('DOMContentLoaded', () => {
+                              // Your JavaScript code here
+                              const urlParams = new URLSearchParams(window.location.search);
+                              const section = urlParams.get('section');
+
+                              // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+                              const firebaseConfig = {
+                                        apiKey: "AIzaSyABVW_aeaSCOI5xxWS3y3kffqdvgfkJJrE",
+                                        authDomain: "focus-f58ac.firebaseapp.com",
+                                        projectId: "focus-f58ac",
+                                        storageBucket: "focus-f58ac.appspot.com",
+                                        messagingSenderId: "485165420551",
+                                        appId: "1:485165420551:web:28940675b55fc967e5daa2",
+                                        measurementId: "G-2VV0W1FJ9Z"
+                              };
+
+                              // Initialize Firebase
+                              const app = initializeApp(firebaseConfig);
+                              const auth = getAuth(app);
+                              const database = getFirestore(app)
+
+
+                              //if logged in execute this 
+                              // Check if a user is logged in or not
+                              onAuthStateChanged(auth, (user) => {
+                                        if (user) {
+                                                  // User is logged in
+                                                  // Put your code here that you want to execute when logged in
+                                                  if (section === 'gsHistory') {
+                                                            examContainer.innerText = ''
+                                                            console.log('clicked');
+
+                                                            const elements = {
+                                                                      title: 'GS History',
+                                                                      url: ''
+                                                            };
+                                                            const subjectContent = document.createElement('div');
+                                                            subjectContent.classList.add('subjectContent');
+
+                                                            subjectContent.innerHTML = `<div class='card'>
+                                <h1>${elements.title}</h1>
+                                <button>Review</button>
+                                <p>What this pack containes:
+                                <ul>
+                                <li>Quizzes</li>
+                                <li>Test Series</li>
+                                <li>Questions & Answers</li>
+                                </ul>
+                                </p>
+                                <h4>Rs.10</h4>
+                                <input type='button' value='Buy now'></input>
+                                </div>
+                                <div class='card'>
+                                <h1>${elements.title}</h1>
+                                <button>Review</button>
+                                <p>What this pack containes:
+                                <ul>
+                                <li>Quizzes + More Quizzes</li>
+                                <li>Test Series & More</li>
+                                <li>Questions & Answers and More</li>
+                                </ul>
+                                </p>
+                                <h4>Rs.10</h4>
+                                <input type='button' value='Buy now'></input>
+                                </div>
+                                <div class='card'>
+                                <h1>${elements.title}<span><button style='color:red; margin-left:10px'>Pro</button></span></h1>
+                                <button>Review</button>
+                                <p>What this pack containes:
+                                <ul>
+                                <li>All in One Quizzes</li>
+                                <li>All Test Series & More</li>
+                                <li> AQuestions & Answers and More</li>
+                                </ul>
+                                </p>
+                                <h4>Rs.100</h4>
+                                <input type='button' value='Buy now'></input>
+                                </div>
+                                `
+
+                                                            container.append(subjectContent)
+                                                  }
+                                                  else if (section === 'gsPolitics') {
+                                                            console.log('clicked');
+                                                            examContainer.innerText = ''
+                                                  }
+                                                  else if (section === 'gsMaths') {
+                                                            console.log('clicked');
+                                                            examContainer.innerText = ''
+                                                  }
+                                                  else if (section === 'gsChemistry') {
+                                                            console.log('clicked');
+                                                            examContainer.innerText = ''
+                                                  }
+                                                  else if (section === 'gsGK') {
+                                                            console.log('clicked');
+                                                            examContainer.innerText = ''
+                                                  }
+                                                  console.log("User is logged in:", user);
+                                                  // Example: Redirect to a profile page
+
+                                        } else {
+                                                  // User is not logged in
+                                                  // Put your code here that you want to execute when not logged in
+                                                  console.log("User is not logged in");
+                                                  window.location.href = '../index.html'
+                                        }
+                              });
+                    });
+
+          </script>
 </body>
 
 </html>

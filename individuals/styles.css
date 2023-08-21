@@ -16,6 +16,10 @@ body {
           color: rgb(224, 224, 224);
 }
 
+.hidden {
+          display: none;
+}
+
 .card-holder {
           margin: 40px 10px 10px;
           display: flex;

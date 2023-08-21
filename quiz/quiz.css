@@ -18,6 +18,10 @@ body {
           padding: 30px;
 }
 
+.app p {
+          font-size: 10px;
+}
+
 .app h1 {
           font-size: 25px;
           color: #001e4d;
@@ -72,10 +76,31 @@ body {
           display: none;
 }
 
-.correct {
+.quiz .correct {
           background: #9aeabc;
 }
 
-.incorrect {
+.quiz .incorrect {
           background: #ff9393;
+}
+
+.hidden {
+          display: none;
+}
+
+button.startQuiz {
+          background: #fff;
+          color: #222;
+          font-weight: 500;
+          width: 100px;
+          border: 1px solid #222;
+          padding: 10px;
+          margin: 100px auto;
+          text-align: left;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: all 0.3s;
+          text-align: center;
+          display: flex;
+          justify-content: center;
 }

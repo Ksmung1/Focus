@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
 :root {
           --light: #fff;
           --dark: #000000;
@@ -14,6 +16,10 @@ body {
 
 }
 
+.blue {
+          background-color: dodgerblue;
+}
+
 .container h2 {
           text-align: center;
           font-size: 25px;
@@ -23,7 +29,7 @@ body {
 
 .ndapage .card {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(1, 1fr);
           padding: 10px;
           gap: 20px;
 }
@@ -61,8 +67,102 @@ tr td ul {
           background-color: #f2f2f2;
 }
 
-@media screen and (max-width: 767px) {
-          .ndapage .card {
-                    grid-template-columns: repeat(1, 1fr)
-          }
+.subjectContent {
+          display: flex;
+          width: calc(350px * 2);
+}
+
+.subjectContent .card {
+          min-width: 170px;
+
+          color: white;
+          font-size: 12px;
+          font-family: sans-serif;
+          padding: 20px;
+          margin: 10px;
+          border: 1px solid #fff;
+          background: linear-gradient(rgba(192, 192, 192, 0.2), rgba(211, 211, 211, 0.2));
+}
+
+.subjectContent .card:nth-child(2) {
+          background: linear-gradient(45deg, #e0e0e03f, #f0f0f054);
+          border: 2px solid #fff;
+
+}
+
+.subjectContent .card:nth-child(3) {
+          background: linear-gradient(125deg, rgba(255, 217, 0, 0.246), #f0f0f054);
+          border: 2px solid gold;
+
+}
+
+.subjectContent h1 {
+          border-bottom: 1px solid #fff;
+}
+
+.subjectContent input {
+          background-color: transparent;
+          border: 1px solid #fff;
+          color: white;
+          padding: 5px;
+}
+
+
+
+.group-a li,
+.group-b li,
+.group-c li {
+          list-style: none;
+}
+
+.group-a li:before,
+.group-b li:before,
+.group-c li:before {
+          content: '\2605';
+          /* Unicode character for a solid star */
+          color: yellow;
+          display: inline-block;
+          width: 1em;
+          margin-left: -1em;
+}
+
+.group-exams {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          font-size: 10px;
+          margin: 0 5px;
+          border: 1px solid #fff;
+          position: relative;
+          background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+          /* Use your background image URL here */
+          /* Custom property for backdrop-filter (experimental) */
+          border-radius: 10px;
+          padding: 20px;
+          color: white;
+}
+
+.group-exams h6 {
+          text-align: left;
+          font-size: 11px;
+          padding-left: 30px;
+}
+
+.group-exams li {
+          padding-bottom: 10px;
+          cursor: pointer;
+}
+
+.group-exams li a {
+
+          color: #fff;
+
+}
+
+.EXAMS {
+          margin: 30px 5px 10px;
+          color: red;
+}
+
+.hidden {
+          display: none;
 }
