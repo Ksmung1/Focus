@@ -156,3 +156,28 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// Notification
+
+function showNotification() {
+  if (Notification.permission !== 'granted') {
+    Notification.requestPermission().then(function (permission) {
+      if (permission === 'granted') {
+        createNotification();
+      }
+    });
+  } else {
+    createNotification();
+  }
+}
+
+function createNotification() {
+  var notification = new Notification('My Notification', {
+    body: 'This is the body of the notification.',
+    icon: '../magzine/adv.png' // Path to an icon image
+  });
+
+  notification.onclick = function () {
+    // Action to perform when the notification is clicked
+    window.open('file:///C:/Users/MILESTONE%20PAITE/Desktop/Focus/index.html');
+  };
+}
