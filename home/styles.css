@@ -6,14 +6,20 @@
      --spacer: 1rem;
 }
 
+img {
+     min-width: 100px;
+     min-height: 100px;
+}
+
 body {
      margin: 0;
      padding: 0;
      box-sizing: border-box;
      font-family: sans-serif;
      overflow-x: hidden;
-     background-color: rgb(122, 122, 239);
-     color: white;
+     background-color: white;
+
+     color: black;
      font-size: 25px;
 }
 
@@ -25,13 +31,15 @@ body {
 
 nav.top-banner {
      margin: 0;
-
+     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
      top: 0;
      width: 100%;
      z-index: 1;
      background: var(--light);
+     position: fixed;
+     top: 0;
+     left: 0;
      /* Remove any default margin from the nav element */
-     border-bottom: 1px solid #f00000;
      /* Add border as before */
      /* Add shadow as before */
 
@@ -61,9 +69,11 @@ nav.top-banner input {
      /* Adjust the value as per your preference */
 }
 
-nav.top-banner button:hover {
-     color: #fff;
+.top-banner a {
+     color: #000;
 }
+
+
 
 nav.top-banner button {
      background-color: var(--light);
@@ -81,60 +91,93 @@ nav.top-banner span {
 }
 
 .om-tiltel {
+     margin: 20px 20px 0;
+     border: 1px solid #000;
+     border-radius: 10px;
      display: grid;
-     grid-template-columns: repeat(8, 1fr);
-     padding: 10px;
-     margin: 30px auto 0;
+     grid-template-columns: repeat(4, 1fr);
+     align-items: center;
      gap: 10px;
      align-items: center;
+     max-height: 160px;
+     min-height: 160px;
+     justify-content: center;
+     background-color: #cbe6eb;
 }
+
+
 
 .om-tiltel .card {
      flex-grow: 1;
      display: inline-block;
-     border-radius: 10px;
-     font-size: 10px;
-     padding: 10px;
-     background-color: #fff;
+     border-radius: 50%;
+     font-size: 9px;
+     padding: 0 18px;
+     /* background-color: rgba(0, 131, 232, 0.1); */
+     position: relative;
      color: #000;
-     min-width: 50px;
-     max-width: 50px;
-     max-height: 50px;
-     min-height: 50px;
-     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.523);
+     min-width: 30px;
+     max-width: 30px;
+     max-height: 30px;
+     min-height: 30px;
 }
 
+.om-tiltel .card img {
+     width: 1px;
+     padding: 0;
+     margin: 0;
+     min-width: 40px;
+     max-width: 40px;
+     max-height: 40px;
+     min-height: 40px;
+     display: flex;
+}
+
+
+
+
+
 .om-tiltel .card:hover {
-     box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.328);
      cursor: pointer;
 
 }
 
+.om-tiltel a {
+     padding: 0;
+     margin: 0;
+}
+
 .om-tiltel .card p {
-     border-right: 1px solid rgb(0, 0, 0);
+     font-size: 8px;
+     margin: 0;
+     text-align: center;
 }
 
 .subscription {
      margin: 20px;
      position: relative;
-     background: linear-gradient(to right, rgb(255, 115, 143), rgb(244, 217, 217));
-     padding: 1px 10px 10px;
-     border-radius: 30px;
+     padding: 10px 10px 4px;
+     border-radius: 20px;
+     border: 1px solid #000;
+     background: linear-gradient(45deg, transparent, rgba(0, 255, 21, 0.087), transparent);
+
 }
 
 .subscription h6 {
      font-size: 13px;
+     margin: 15px 10px 0;
      color: var(--dark);
 }
 
 .subscription p {
-     font-size: 12px;
+     font-size: 9px;
      color: black;
+     margin: 5px 10px 0;
 }
 
 .subscription button {
      position: absolute;
-     top: 40px;
+     top: 120px;
      right: 20px;
      padding: 5px;
      background-color: red;
@@ -151,16 +194,22 @@ nav.top-banner span {
      /* Wrap the columns to the next line when necessary */
      justify-content: space-between;
      align-items: center;
+     margin: 0;
+     padding: 0 40px;
 }
 
 .subscription .row .col {
-     margin-top: 10px;
-     background-color: var(--light);
-     min-width: 30%;
-     max-width: 30%;
+     margin-top: 0;
+
      text-align: center;
      border-radius: 10px;
+
 }
+
+.subscription .row .col h6 {
+     font-size: 12px;
+}
+
 
 .testimonials {
      margin: 50px 20px;
@@ -170,7 +219,8 @@ nav.top-banner span {
 .testimonials .comments {
      margin-top: 70px;
      padding: 20px;
-     box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.1);
+     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+     background: linear-gradient(to bottom, transparent, rgba(255, 0, 0, 0.105), transparent);
 }
 
 .testimonials .comments .img-container {
@@ -264,12 +314,12 @@ span.collapse-bar {
 
 
 .foot {
-     color: #fff;
+     color: #000;
      font-size: 13px;
 }
 
 footer {
-     border-top: 0.7px solid white;
+     border-top: 0.7px solid black;
 
      margin: 50px 0px 60px;
      padding: 0 20px;
@@ -313,7 +363,7 @@ footer ul li {
 }
 
 footer ul li a {
-     color: white;
+     color: black;
      opacity: 80%;
      text-decoration: none;
 }
@@ -324,39 +374,59 @@ footer ul li a:hover {
 
 .real-footer {
      position: fixed;
+     margin: 0;
+     padding: 0;
      bottom: 0;
      left: 0;
      width: 100%;
-     height: 50px;
-     background: rgb(122, 122, 239);
+     height: 60px;
+     background: rgb(255, 255, 255);
      /* border-top: 1px solid white; */
-     color: #000;
+     color: black;
+     z-index: 1;
+     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+
 }
 
 .real-footer ul {
      display: flex;
-     flex-direction: row;
-     gap: 10px;
+     justify-content: space-evenly;
+     padding-inline-start: 0;
+
 }
 
 .real-footer ul li {
+     margin: 0;
+     padding: 0;
      cursor: pointer;
      padding: 1px;
      border: 1px solid rgb(255, 255, 255);
+     text-align: center;
+}
+
+a ion-icon {
+     padding-left: 20px;
+     text-decoration: none;
+     color: #000;
+}
+
+ion-icon {
+     font-size: 20px;
+     text-align: center;
+     display: inline-block;
 }
 
 /*  im[prtant */
 .media-scroller {
      display: grid;
-     gap: 10px;
+     gap: 20px;
      grid-auto-flow: column;
-
      overflow-x: auto;
      overscroll-behavior-inline: contain;
-     padding: 0 0 0 5px;
-     margin: 30px 0px 0;
+     padding: 0;
+     margin: 20px 20px;
+     max-height: 160px;
      overflow-y: hidden;
-
 }
 
 
@@ -365,20 +435,19 @@ footer ul li a:hover {
      display: grid;
      padding: 0;
      grid-template-rows: min-content;
-     width: 300px;
+     width: 340px;
+     height: 140px;
      gap: 4px;
-     border: 1px solid #fff;
-     border-radius: 10px;
-     box-shadow: 1px 1px 1px rgb(254, 254, 254);
      font-size: 13px;
-     max-height: 330px;
      overflow-y: hidden;
+
+
 }
 
 .media-element img {
-     width: 100%;
-     height: 180px;
-     overflow: hidden;
+     width: 340px;
+     height: 140px;
+     padding: 0;
 }
 
 .snaps-inline {
@@ -393,19 +462,21 @@ footer ul li a:hover {
 }
 
 .blogs {
-     margin-top: 100px;
+     margin-top: 40px;
      padding: 10px;
-     border-top: 2px solid red;
-     border-bottom: 2px solid red;
      position: relative;
+     /* background-color: rgba(0, 81, 243, 0.095); */
+     background: linear-gradient(to bottom, transparent, rgba(0, 106, 255, 0.105), transparent);
+
 }
 
 .blogs .card {
-     border: 2px solid limegreen;
+     border: 1px solid #000;
      padding: 10px;
      margin: 10px;
      display: flex;
      gap: 10px;
+     border-radius: 5px;
 }
 
 .blogs .card .img-container {
@@ -425,7 +496,7 @@ footer ul li a:hover {
 }
 
 .blogs p {
-     font-size: 13px;
+     font-size: 10px;
      text-align: left;
      word-spacing: 1px;
 }
@@ -435,7 +506,11 @@ footer ul li a:hover {
 }
 
 .blogs h4 {
+     margin: 0;
      padding: 0 10px;
+     font-size: 16px;
+     font-weight: 700;
+     text-align: center;
 }
 
 .add-blog {
@@ -603,12 +678,6 @@ footer ul li a:hover {
      transition: 0.2s ease;
 }
 
-.chat-container .body {
-     flex: 1;
-     color: white;
-     background-color: rgba(0, 0, 0, 0.7);
-     padding: 20px 30px;
-}
 
 
 
@@ -637,15 +706,16 @@ footer ul li a:hover {
      display: grid;
      grid-template-columns: repeat(3, 1fr);
      font-size: 10px;
-     margin: 0 5px;
-     border: 1px solid #fff;
+     margin: 0 20px;
+     border: 1px solid #000;
      position: relative;
-     background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+     background-color: rgba(246, 255, 0, 0.303);
+     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
      /* Use your background image URL here */
      /* Custom property for backdrop-filter (experimental) */
      border-radius: 10px;
-     padding: 20px;
-     color: white;
+     padding: 10px;
+     color: black;
 }
 
 .group-exams h6 {
@@ -657,11 +727,12 @@ footer ul li a:hover {
 .group-exams li {
      padding-bottom: 10px;
      cursor: pointer;
+
 }
 
 .group-exams li a {
 
-     color: #fff;
+     color: black;
 
 }
 
@@ -671,24 +742,31 @@ footer ul li a:hover {
 }
 
 .subscription .items {
-     display: flex;
+     display: grid;
+     grid-template-columns: repeat(5, 1fr);
+     padding-left: 8px;
      justify-content: center;
      color: white;
      gap: 10px;
      padding-top: 4px;
+     position: relative;
 }
 
 .subscription .items .card {
-     width: 30px;
-     height: 30px;
+     width: 20px;
+     height: 20px;
      border-radius: 50%;
      background-color: red;
+     position: relative;
+     justify-content: center;
+     display: flex;
+     text-align: center;
      position: relative;
 }
 
 .items .card p {
      color: #000;
-     font-size: 10px;
+     font-size: 7px;
      text-align: center;
      cursor: pointer
 }
@@ -798,10 +876,9 @@ header {
      }
 
      .om-tiltel {
-          grid-template-columns: repeat(3, 1fr);
-          padding-left: 40px;
-          align-items: center;
 
+          align-items: center;
+          margin-top: 80px;
      }
 
      .group-exams h6 {

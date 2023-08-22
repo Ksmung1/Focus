@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
                               paragraph1: `<div class='card'>
                               <h3>JOBS</h3>
                               <ul>
-                              <li><a href = '../Exams/index.html'>Defence Exams</a></li>
+                              <li><a href = '../Exams/index.html?'>Defence Exams</a></li>
                               <li><a>SSC CGL</a></li>
                               <li><a>Defence Exams</a></li>
                               <li><a>Defence Exams</a></li>
