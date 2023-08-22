@@ -178,6 +178,6 @@ function createNotification() {
 
   notification.onclick = function () {
     // Action to perform when the notification is clicked
-    window.open('file:///C:/Users/MILESTONE%20PAITE/Desktop/Focus/index.html');
+    window.open('https://chat.openai.com/');
   };
 }
