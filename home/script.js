@@ -187,7 +187,7 @@ blog.addEventListener('click', (e) => {
       blogContainer.classList.remove('hidden');
       blogContainer.innerHTML = `
                     <div class="card-viewer">
-                    <img src="magzine/INDIAN ARMY.jpeg" alt="">
+                    <img src="magzine/Picsart_23-08-23_20-48-11-650.jpg" alt="">
                     <div>
                              <h3>Cracking the SSB Interview: Unveiling the Path to Success
                              </h3>
@@ -220,40 +220,58 @@ Stay updated with current affairs and general knowledge. Read newspapers, watch 
 
 Effective communication is the cornerstone of leadership. Practice speaking clearly, confidently, and coherently. Engage in debates, discussions, and group activities to refine your communication skills.
 <br>
+<br>
 6. OIR Test: Mastering Logical Reasoning
+
 
 The Officer Intelligence Rating (OIR) test evaluates your logical reasoning and problem-solving abilities. Regular practice with puzzles, mathematical problems, and reasoning exercises enhances your cognitive agility and analytical thinking.
 <br>
+<br>
+
 7. Psychological Tests: Express Your Inner Self
 
 Psychological tests like the Thematic Apperception Test (TAT), Word Association Test (WAT), and Situation Reaction Test (SRT) delve into your thought process and creativity. Develop the ability to craft meaningful stories and responses that reflect your personality and values.
+<br>
 <br>
 8. Group Tasks: Leadership and Teamwork
 
 Group tasks assess your leadership, teamwork, and decision-making skills. Engage in group activities, sports, and simulations to hone your ability to work collaboratively and lead effectively.
 <br>
+<br>
+
 9. Self-Description: Know Yourself Intimately
 
 Be prepared to discuss your strengths, weaknesses, achievements, and aspirations. Genuine self-description reveals your authentic self, demonstrating maturity and self-awareness.
 <br>
+<br>
+
 10. Mock Interviews: Polishing the Diamond
 
 Practice mock interviews with experienced mentors. Constructive feedback will familiarize you with the interview setting, build your confidence, and fine-tune your responses.
 <br>
+<br>
+
 11. Dress and Grooming: Impress with Professionalism
 
 Dress neatly and professionally. Proper grooming and attire showcase your respect for the interview process and your understanding of the military's standards.
 <br>
+<br>
+
 12. Confidence and Positivity: The Winning Mindset
 
 Believe in yourself and your abilities. Maintain a positive attitude throughout the process. Confidence, optimism, and determination are magnetic traits that leave a lasting impression.
 <br>
+<br>
+
 13. Immerse in Armed Forces Culture: Understanding the Calling
 
 Research the values, history, and responsibilities of the armed forces. Aligning your aspirations with the organization's ethos reflects your genuine commitment to serve.
 
 In conclusion, cracking the SSB interview demands more than just intellectual prowess; it necessitates character, adaptability, and the potential to lead. Prepare thoroughly, understand your strengths and areas for growth, and approach the process with a positive mindset. Remember, each interaction is an opportunity to showcase your potential to become an officer and a leader. As you embark on this transformative journey, embrace the challenge, embrace your growth, and step confidently towards realizing your dream of joining the ranks of the esteemed Indian Armed Forces.
-                             </p>
+               
+<br>
+<br>
+</p>
                           
 <button id='closeArticle'>Close</button>
 <br>
@@ -267,11 +285,18 @@ In conclusion, cracking the SSB interview demands more than just intellectual pr
                     </div>
 
                     `
+      window.addEventListener('popstate', function (event) {
+        // This function will be called when the user goes back in history
+        // You can add your own code here to handle the back action
+        // For example, you might want to redirect the user or perform certain actions
+        window.location.href = '../index.html'
+      });
+
     } else if (cardId === 'article2') {
       blogContainer.classList.remove('hidden');
       blogContainer.innerHTML = `
                     <div class="card-viewer">
-                    <img src="magzine/INDIAN ARMY.jpeg" alt="">
+                    <img src="magzine/Picsart_23-08-23_21-32-16-006.jpg" alt="">
                     <div>
                              <h3>Cracking the SSB Interview: Unveiling the Path to Success
                              </h3>

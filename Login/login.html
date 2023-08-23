@@ -108,7 +108,10 @@
                                         const passworddDiv = document.querySelector('.passwordDiv');
                                         const emailDiv = document.querySelector('.emailDiv');
 
-                                        username
+                                        usernameDiv.classList.remove('hidden');
+                                        PhDiv.classList.remove('hidden');
+                                        passworddDiv.classList.remove('hidden');
+                                        emailDiv.classList.add('hidden');
                               })
 
                               phoneSignup.addEventListener('click', () => {
