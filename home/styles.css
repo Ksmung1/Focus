@@ -797,6 +797,16 @@ ion-icon {
      position: relative;
 }
 
+#closeArticle {
+     position: fixed;
+     z-index: 2;
+     bottom: 80px;
+     right: 20px;
+     color: #000;
+     background-color: rgb(27, 255, 27);
+     border: none;
+}
+
 .items .card p {
      color: #000;
      font-size: 7px;

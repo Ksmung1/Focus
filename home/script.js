@@ -289,6 +289,12 @@ In conclusion, cracking the SSB interview demands more than just intellectual pr
         // You can display a custom confirmation message here
         event.returnValue = "Are you sure you want to leave?"; // This message might not be shown in all browsers
       });
+      window.addEventListener('popstate', function (event) {
+        // Close the popup if it's open
+        if (blogContainer.style.display === 'block') {
+          blogContainer.style.display = 'none';
+        }
+      });
 
 
     } else if (cardId === 'article2') {
