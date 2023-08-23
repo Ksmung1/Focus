@@ -14,6 +14,28 @@ const mediaElements = document.querySelectorAll('.media-element');
 const mediaScroller = document.querySelector('.media-scroller');
 const hiddenBlog = document.querySelector('.hidden-blog')
 
+const pTime = document.querySelector('.time');
+
+// Get the current date and time
+const currentDate = new Date();
+
+// Extract different components of the date and time
+const year = currentDate.getFullYear();
+const month = currentDate.getMonth() + 1; // Months are 0-indexed, so add 1
+const day = currentDate.getDate();
+const hours = currentDate.getHours();
+const minutes = currentDate.getMinutes();
+const seconds = currentDate.getSeconds();
+
+// Format the components as desired
+const formattedDate = `${year}-${month}-${day}`;
+const formattedTime = `${hours}:${minutes}:${seconds}`;
+
+// Display the current date and time
+console.log("Current Date:", formattedDate);
+console.log("Current Time:", formattedTime);
+
+pTime.innerHTML = `${formattedDate}`
 
 function openPopup() {
   popupWindow.classList.toggle('hidden')
@@ -147,4 +169,154 @@ document.addEventListener('DOMContentLoaded', () => {
     // Your purchase logic here
     console.log('Purchased successfully')
   }
+});
+
+
+////////////////////////////aRTICLE ///////////////////////////////////
+const blog = document.querySelector('.blogs');
+const blogContainer = document.querySelector('.blog-container');
+
+blog.addEventListener('click', (e) => {
+  const card = e.target.closest('.card');
+
+
+
+  if (card) {
+    const cardId = card.getAttribute('id')
+    if (cardId === 'article1') {
+      blogContainer.classList.remove('hidden');
+      blogContainer.innerHTML = `
+                    <div class="card-viewer">
+                    <img src="magzine/INDIAN ARMY.jpeg" alt="">
+                    <div>
+                             <h3>Cracking the SSB Interview: Unveiling the Path to Success
+                             </h3>
+                             <p class="time"></p>
+                             <p class='content'>
+The Services Selection Board (SSB) interview is a monumental gateway for individuals aspiring to join the prestigious Indian Armed Forces as officers. This intensive evaluation process is designed to assess not just your cognitive abilities, but also your character, leadership potential, and interpersonal skills. Successfully navigating the SSB interview requires a holistic approach that combines preparation, self-awareness, and a commitment to personal growth. Here's a comprehensive guide on how to crack the SSB interview and embark on a journey towards becoming an officer.
+<br>
+<br>
+1. Know the Terrain: Understanding the SSB Process
+
+Before you embark on this journey, acquaint yourself with the intricacies of the SSB process. From the initial screening tests to the final personal interview, each stage evaluates specific aspects of your personality. Understand the qualities and attributes that the armed forces value, such as leadership, communication skills, adaptability, and teamwork.
+<br>
+<br>
+2. Self-Assessment: The Foundation of Excellence
+
+Successful candidates are those who possess self-awareness and a willingness to improve. Reflect on your strengths and weaknesses. Seek feedback from mentors, teachers, or friends to gain valuable insights into your character. Identifying areas for improvement is the first step towards personal growth.
+<br>
+<br>
+3. Physical Fitness: A Prerequisite for Military Life
+
+The armed forces demand physical fitness. Engage in regular exercise, sports, and outdoor activities to build endurance, strength, and agility. A healthy body not only demonstrates your commitment but also prepares you for the physical demands of military life.
+<br>
+<br>
+4. Current Affairs and General Knowledge: Stay Informed
+
+Stay updated with current affairs and general knowledge. Read newspapers, watch the news, and delve into national and international events. A well-informed candidate showcases intellectual curiosity and an understanding of the world around them.
+<br>
+<br>
+5. Communication Skills: Articulate and Confident Expression
+
+Effective communication is the cornerstone of leadership. Practice speaking clearly, confidently, and coherently. Engage in debates, discussions, and group activities to refine your communication skills.
+<br>
+6. OIR Test: Mastering Logical Reasoning
+
+The Officer Intelligence Rating (OIR) test evaluates your logical reasoning and problem-solving abilities. Regular practice with puzzles, mathematical problems, and reasoning exercises enhances your cognitive agility and analytical thinking.
+<br>
+7. Psychological Tests: Express Your Inner Self
+
+Psychological tests like the Thematic Apperception Test (TAT), Word Association Test (WAT), and Situation Reaction Test (SRT) delve into your thought process and creativity. Develop the ability to craft meaningful stories and responses that reflect your personality and values.
+<br>
+8. Group Tasks: Leadership and Teamwork
+
+Group tasks assess your leadership, teamwork, and decision-making skills. Engage in group activities, sports, and simulations to hone your ability to work collaboratively and lead effectively.
+<br>
+9. Self-Description: Know Yourself Intimately
+
+Be prepared to discuss your strengths, weaknesses, achievements, and aspirations. Genuine self-description reveals your authentic self, demonstrating maturity and self-awareness.
+<br>
+10. Mock Interviews: Polishing the Diamond
+
+Practice mock interviews with experienced mentors. Constructive feedback will familiarize you with the interview setting, build your confidence, and fine-tune your responses.
+<br>
+11. Dress and Grooming: Impress with Professionalism
+
+Dress neatly and professionally. Proper grooming and attire showcase your respect for the interview process and your understanding of the military's standards.
+<br>
+12. Confidence and Positivity: The Winning Mindset
+
+Believe in yourself and your abilities. Maintain a positive attitude throughout the process. Confidence, optimism, and determination are magnetic traits that leave a lasting impression.
+<br>
+13. Immerse in Armed Forces Culture: Understanding the Calling
+
+Research the values, history, and responsibilities of the armed forces. Aligning your aspirations with the organization's ethos reflects your genuine commitment to serve.
+
+In conclusion, cracking the SSB interview demands more than just intellectual prowess; it necessitates character, adaptability, and the potential to lead. Prepare thoroughly, understand your strengths and areas for growth, and approach the process with a positive mindset. Remember, each interaction is an opportunity to showcase your potential to become an officer and a leader. As you embark on this transformative journey, embrace the challenge, embrace your growth, and step confidently towards realizing your dream of joining the ranks of the esteemed Indian Armed Forces.
+                             </p>
+                          
+<button id='closeArticle'>Close</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+                    </div>
+                    </div>
+
+                    `
+    } else if (cardId === 'article2') {
+      blogContainer.classList.remove('hidden');
+      blogContainer.innerHTML = `
+                    <div class="card-viewer">
+                    <img src="magzine/INDIAN ARMY.jpeg" alt="">
+                    <div>
+                             <h3>Cracking the SSB Interview: Unveiling the Path to Success
+                             </h3>
+                             <p class="time"></p>
+                             <p class='content'>
+                            
+
+In the realm of elite military forces, the Para Special Forces stand as an epitome of courage, precision, and unparalleled dedication. The journey to become a part of this exceptional brotherhood is no ordinary feat; it's a relentless pursuit of excellence that tests one's physical endurance, mental fortitude, and unwavering commitment to the nation. In this comprehensive exploration, we delve into the rigorous selection process that shapes these elite warriors and the qualities that define those who walk the path to becoming a Para SF commando.
+
+Origins and Aspirations: The Para Special Forces, renowned as the Para SF, were conceived in response to the dynamic challenges of modern warfare. Established in 1966, their mission was clear: to be a force of extraordinary individuals who could operate beyond the conventional realm and excel in unconventional scenarios. Aspiring to become a Para SF commando means embracing this legacy of exceptionalism.
+
+The Crucible of Selection: The selection process for the Para SF is not for the faint-hearted. It's a grueling and unforgiving journey that demands physical prowess, mental resilience, and an unyielding spirit. Aspirants must conquer a series of arduous tests, including long-distance runs, obstacle courses, survival challenges, and parachute jumps. The aim is to identify individuals who can withstand immense pressure and still emerge as unshakable leaders.
+
+Endurance Beyond Limits: Surviving the selection process requires more than just physical strength. Candidates endure sleep deprivation, pushing the boundaries of their mental and emotional capacities. This aspect of training prepares them to operate effectively even in the most challenging and demanding scenarios.
+
+Mental Fortitude and Resilience: The path to becoming a Para SF commando is not solely about physical prowess. Mental fortitude and resilience play a pivotal role. Aspirants must demonstrate unwavering determination, the ability to think on their feet, and a willingness to face adversity head-on.
+
+The Coveted Maroon Beret: A Symbol of Honor: Earning the maroon beret is the culmination of this grueling journey. This iconic headgear is more than a piece of uniform; it symbolizes membership in an elite brotherhood committed to the highest standards of discipline, courage, and service.
+
+Building Brotherhood: Camaraderie and Unity: Throughout the selection process, candidates forge strong bonds with their fellow aspirants. This camaraderie, built on shared challenges and aspirations, forms a foundation that sustains them through the demanding training that follows.
+
+Training and Transformation: Once selected, the transformation into a Para SF commando continues. Rigorous training sharpens skills in areas such as combat tactics, weapons proficiency, advanced survival techniques, and specialized warfare tactics. This training equips them to face a wide spectrum of challenges with precision and expertise.
+
+Adapting to Diverse Roles: Para SF commandos are trained to be versatile and adept at various roles. From counter-terrorism operations to unconventional warfare and intelligence gathering, they are the Swiss Army knives of the military world, ready to adapt and excel in any situation.
+
+An Ongoing Journey: The journey to become a Para SF commando doesn't end with training; it's an ongoing commitment to excellence. These elite warriors continually hone their skills, learn from experiences, and evolve to meet new and emerging threats.
+
+A Legacy of Valor: The Para Special Forces are a living legacy of valor and dedication. The path to becoming a Para SF commando is a testament to the indomitable spirit of those who seek to serve their nation at the highest level. It's a journey of self-discovery, transformation, and unwavering commitment that shapes individuals into the epitome of military excellence – a Para SF commando.
+                             </p>
+                          
+<button id='closeArticle'>Close</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+                    </div>
+                    </div>`
+    }
+
+  }
+  const closeButtonArticle = document.querySelector('#closeArticle')
+
+  closeButtonArticle.addEventListener('click', () => { blogContainer.classList.add('hidden') })
+
 });

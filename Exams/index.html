@@ -49,6 +49,7 @@
                               // Check if a user is logged in or not
                               onAuthStateChanged(auth, (user) => {
                                         if (user) {
+
                                                   // User is logged in
                                                   // Put your code here that you want to execute when logged in
                                                   if (section === 'gsHistory') {
@@ -63,46 +64,46 @@
                                                             subjectContent.classList.add('subjectContent');
 
                                                             subjectContent.innerHTML = `<div class='card'>
-                                <h1>${elements.title}</h1>
-                                <button>Review</button>
-                                <p>What this pack containes:
-                                <ul>
-                                <li>Quizzes</li>
-                                <li>Test Series</li>
-                                <li>Questions & Answers</li>
-                                </ul>
-                                </p>
-                                <h4>Rs.10</h4>
-                                <button onClick="buyCourse('pen')">Buy now</button>
-                                
-                                </div>
-                                <div class='card'>
-                                <h1>${elements.title}</h1>
-                                <button>Review</button>
-                                <p>What this pack containes:
-                                <ul>
-                                <li>Quizzes + More Quizzes</li>
-                                <li>Test Series & More</li>
-                                <li>Questions & Answers and More</li>
-                                </ul>
-                                </p>
-                                <h4>Rs.10</h4>
-                                <button onClick="buyCourse('pencil')">Buy now</button>
-                                </div>
-                                <div class='card'>
-                                <h1>${elements.title}<span><button style='color:red; margin-left:10px'>Pro</button></span></h1>
-                                <button>Review</button>
-                                <p>What this pack containes:
-                                <ul>
-                                <li>All in One Quizzes</li>
-                                <li>All Test Series & More</li>
-                                <li> AQuestions & Answers and More</li>
-                                </ul>
-                                </p>
-                                <h4>Rs.100</h4>
-                                <button onClick="buyCourse('rubber')">Buy now</button>
-                                </div>
-                                `
+                                                                                           <h1>${elements.title}</h1>
+                                                                                           <button>Review</button>
+                                                                                           <p>What this pack containes:
+                                                                                           <ul>
+                                                                                           <li>Quizzes</li>
+                                                                                           <li>Test Series</li>
+                                                                                           <li>Questions & Answers</li>
+                                                                                           </ul>
+                                                                                           </p>
+                                                                                           <h4>Rs.10</h4>
+                                                                                           <button onClick="buyCourse('pen')">Buy now</button>
+
+                                                                                           </div>
+                                                                                           <div class='card'>
+                                                                                           <h1>${elements.title}</h1>
+                                                                                           <button>Review</button>
+                                                                                           <p>What this pack containes:
+                                                                                          <ul>
+                                                                                           <li>Quizzes + More Quizzes</li>
+                                                                                           <li>Test Series & More</li>
+                                                                                           <li>Questions & Answers and More</li>
+                                                                                           </ul>
+                                                                                           </p>
+                                                                                           <h4>Rs.10</h4>
+                                                                                           <button onClick="buyCourse('pencil')">Buy now</button>
+                                                                                           </div>
+                                                                                           <div class='card'>
+                                                                                           <h1>${elements.title}<span><button style='color:red; margin-left:10px'>Pro</button></span></h1>
+                                                                                          <button>Review</button>
+                                                                                            <p>What this pack containes:
+                                                                                            <ul>
+                                                                                            <li>All in One Quizzes</li>
+                                                                                            <li>All Test Series & More</li>
+                                                                                            <li> AQuestions & Answers and More</li>
+                                                                                           </ul>
+                                                                                           </p>
+                                                                                           <h4>Rs.100</h4>
+                                                                                           <button onClick="buyCourse('rubber')">Buy now</button>
+                                                                                           </div>
+                                                                                           `
 
                                                             container.append(subjectContent)
                                                   }
@@ -128,8 +129,7 @@
                                         } else {
                                                   // User is not logged in
                                                   // Put your code here that you want to execute when not logged in
-                                                  console.log("User is not logged in");
-                                                  window.location.href = '../Login/login.html'
+                                                  alert("User is not logged in");
                                         }
                               });
                     });

@@ -15,19 +15,31 @@
                     <div class="login-box">
                               <form action="">
                                         <h2 class="logTitle">Login</h2>
-                                        <div class="input-box hidden" id="inputBox">
+                                        <div class="input-box hidden" id="inputBox" class="usernameDiv">
                                                   <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
                                                   <input type="text" id="username">
                                                   <label>Username</label>
                                         </div>
-                                        <div class="input-box">
+                                        <div class="input-box hidden" id="inputBox" class="PhDiv">
+                                                  <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                                                  <input type="number" id="number">
+                                                  <label>Phone no.</label>
+                                        </div>
+                                        <div class="input-box" class="emailDiv">
                                                   <span class="icon"><ion-icon name="mail"></ion-icon></span>
                                                   <input type="email" id='email' required>
                                                   <label>Email</label>
                                         </div>
-                                        <div class="input-box">
+                                        <div class="input-box" class="passwordDiv">
                                                   <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+
                                                   <input type="password" id="password" required>
+                                                  <ion-icon id="togglePassword" name="eye-outline"
+                                                            style="padding-right: 20px; color: white;"></ion-icon>
+                                                  <ion-icon id="togglePassword2" class="hidden"
+                                                            style="padding-right: 20px; color: white;"
+                                                            name="eye-off-outline"></ion-icon>
+
                                                   <label>Password</label>
                                         </div>
                                         <div class="remember-forgot">
@@ -44,7 +56,12 @@
 
                                         </div>
 
+                                        <div class="other-methods">
+                                                  <p>Sign in with <a href="#" class="phoneSignup">Ph.Number</a></p>
+                                        </div>
+
                               </form>
+
                     </div>
           </section>
           <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -79,10 +96,42 @@
 
                               const register = document.getElementById('register');
                               const login = document.getElementById('login');
+                              const phoneSignup = document.querySelector('.phoneSignup')
                               const registerButton = document.querySelector('.registerButton');
                               registerButton.textContent = 'Register'
                               const pContent = document.querySelector('.pContent')
                               pContent.textContent = "Don't have an Account?"
+
+                              phoneSignup.addEventListener('click', () => {
+                                        const usernameDiv = document.querySelector('.usernameDiv');
+                                        const PhDiv = document.querySelector('.PhDiv');
+                                        const passworddDiv = document.querySelector('.passwordDiv');
+                                        const emailDiv = document.querySelector('.emailDiv');
+
+                                        username
+                              })
+
+                              phoneSignup.addEventListener('click', () => {
+                                        const phoneNumber = document.getElementById('number').value
+                                        const appVerifier = new auth.RecaptchaVerifier('recaptcha-container', {
+                                                  size: 'invisible'
+                                        });
+
+                                        signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+                                                  .then((confirmationResult) => {
+                                                            const verificationCode = prompt('Please enter the verification code sent to your phone:');
+                                                            return confirmationResult.confirm(verificationCode);
+                                                  })
+                                                  .then((userCredential) => {
+                                                            // User signed in successfully
+                                                            const user = userCredential.user;
+                                                            console.log('User signed in:', user);
+                                                  })
+                                                  .catch((error) => {
+                                                            console.error('Error:', error);
+                                                  });
+                              });
+
 
                               registerButton.addEventListener('click', () => {
                                         console.log('clicked');
@@ -115,11 +164,11 @@
                               // Create an event listener for the registration button
                               // Inside the register event listener
                               register.addEventListener('click', (e) => {
-                                        ee.preventDefault()
+                                        e.preventDefault()
                                         // ... (existing code for user registration)
                                         const email = document.getElementById('email').value;
                                         const password = document.getElementById('password').value;
-                                        username = document.getElementById('username').value;
+                                        const username = document.getElementById('username').value;
                                         console.log(username)
 
                                         createUserWithEmailAndPassword(auth, email, password)
@@ -142,14 +191,17 @@
                                                                                 console.error('Error saving user data:', error);
                                                                       });
 
+                                                            alert('Successfully Registered')
                                                             console.log('Registration successful');
+                                                            window.location.href = '../index.html'
                                                             // Redirect to another page or perform other actions
                                                   })
                                                   .catch((error) => {
                                                             setTimeout(() => {
                                                                       window.location.href = '../index.html';
-                                                            }, 5000);
+                                                            }, 3000);
                                                             console.error('Registration error:', error.message);
+                                                            alert('Registration failed')
                                                   });
 
                                         // ... (rest of the code)
@@ -185,10 +237,12 @@
                                                                                 }
                                                                       })
                                                                       .catch((error) => {
+                                                                                alert('error')
                                                                                 console.error('Error fetching user data:', error);
                                                                       });
                                                   })
                                                   .catch((error) => {
+                                                            alert('error signing in')
                                                             console.log('Error signing in:', error);
                                                             window.location.href = '../index.html';
                                                   });
@@ -196,6 +250,17 @@
                               });
 
 
+                              const passwordInput = document.getElementById('password');
+                              const togglePassword = document.getElementById('togglePassword');
+
+                              togglePassword.addEventListener('click', (e) => {
+                                        e.preventDefault()
+                                        if (passwordInput.type === 'password') {
+                                                  passwordInput.type = 'text';
+                                        } else {
+                                                  passwordInput.type = 'password';
+                                        }
+                              });
 
                     });
 

@@ -486,30 +486,47 @@ ion-icon {
      font-size: 11px;
 }
 
+.blog-container {
+     padding: 2px;
+     font-size: 11px;
+     width: 100%;
+     position: fixed;
+     background-color: #fff;
+     color: #000;
+     height: 100%;
+     z-index: 1;
+     top: 0;
+     left: 0;
+     overflow-y: scroll;
+}
+
+.blog-container img {
+     width: 100%;
+}
 
 .blogs .card {
 
      padding: 0px;
-     margin-bottom: 150px;
+     margin: 10px 0;
      cursor: pointer;
      display: flex;
-     flex-direction: column;
+     flex-direction: row;
      border-radius: 5px;
-}
-
-.blogs .card .img-container {
-
-     overflow: hidden;
+     gap: 10px;
 
 }
+
 
 .width {
      width: 100%;
 }
 
 .blogs .card img {
-     width: 100%;
+     width: 150px;
+     height: 150px;
+     border-radius: 3px;
 }
+
 
 .blogs p {
      font-size: 10px;
@@ -518,7 +535,11 @@ ion-icon {
 }
 
 .blogs div {
-     align-items: center;
+     align-items: top;
+}
+
+.blogs div h3 {
+     margin: 10px 0 20px;
 }
 
 .blogs h4 {
@@ -550,13 +571,10 @@ ion-icon {
 }
 
 .content p {
-     margin: 10px 0 0 80px;
+     margin: 15px 0 0;
      padding: 0;
+     font-size: 11px;
      text-overflow: clip;
-     display: -webkit-box;
-     -webkit-line-clamp: 2;
-     /* Show two lines of text */
-     -webkit-box-orient: vertical;
 }
 
 .read-more {
@@ -901,5 +919,11 @@ header {
      .group-exams h6 {
           text-align: center;
           padding: 0;
+     }
+
+     .blogs .card img {
+          width: 50%;
+          height: 50%;
+          border-radius: 3px;
      }
 }
