@@ -494,7 +494,7 @@ ion-icon {
      background-color: #fff;
      color: #000;
      height: 100%;
-     z-index: 1;
+     z-index: 100;
      top: 0;
      left: 0;
      overflow-y: scroll;
@@ -799,12 +799,15 @@ ion-icon {
 
 #closeArticle {
      position: fixed;
-     z-index: 2;
-     bottom: 80px;
-     right: 20px;
+     z-index: 2000;
+     bottom: 0px;
+     right: 50px;
      color: #000;
-     background-color: rgb(27, 255, 27);
+     background-color: rgb(37, 255, 37);
      border: none;
+     border-radius: 5px;
+     width: 50px;
+     padding: 10px;
 }
 
 .items .card p {
