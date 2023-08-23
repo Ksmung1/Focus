@@ -2,173 +2,351 @@
 <html lang="en">
 
 <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Focus</title>
-          <link rel="stylesheet" href="quiz.css">
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Focus</title>
+       <link rel="stylesheet" href="quiz.css">
 </head>
 
 <body>
 
-          <div class="quiz-starter">
-                    <button class="startQuiz">Start Quiz</button>
-          </div>
-          <div class="app hidden">
-                    <h1>Quiz</h1>
-                    <div class="quiz">
-                              <h2 id="question"></h2>
-                              <div id="answer-buttons">
-                                        <button class="btn"></button>
-                                        <button class="btn"></button>
-                                        <button class="btn"></button>
-                                        <button class="btn"></button>
-                              </div>
-                              <button id="next-btn">Next</button>
-                    </div>
-          </div>
+       <div class="container">
 
-          <script type="module">
-                    const questions = [
-                              {
-                                        question: "What is the first letter in the alphabet?",
-                                        answers: [
-                                                  { text: "A", correct: true },
-                                                  { text: "B", correct: false },
-                                                  { text: "C", correct: false },
-                                                  { text: "D", correct: false }
-                                        ]
-                              },
-                              {
-                                        question: "What is the last letter in the alphabet?",
-                                        answers: [
-                                                  { text: "A", correct: false },
-                                                  { text: "B", correct: false },
-                                                  { text: "C", correct: false },
-                                                  { text: "Z", correct: true }
-                                        ]
-                              },
-                              // Add more questions here
-                    ];
+       </div>
 
+       <script type="module">
+              import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+              import { getDatabase, push, set, ref, query, orderByChild, limitToLast, get, child } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js';
+              import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
 
-                    const questionElement = document.getElementById('question');
-                    const answerButtons = document.getElementById('answer-buttons');
-                    const nextButton = document.getElementById('next-btn');
+              const firebaseConfig = {
+                     apiKey: "AIzaSyABVW_aeaSCOI5xxWS3y3kffqdvgfkJJrE",
+                     authDomain: "focus-f58ac.firebaseapp.com",
+                     projectId: "focus-f58ac",
+                     storageBucket: "focus-f58ac.appspot.com",
+                     messagingSenderId: "485165420551",
+                     appId: "1:485165420551:web:28940675b55fc967e5daa2",
+                     measurementId: "G-2VV0W1FJ9Z"
+              };
 
-                    const quizapp = document.querySelector('.app');
-                    const quizStarter = document.querySelector('.quiz-starter')
+              // Initialize Firebase
+              const app = initializeApp(firebaseConfig);
+              const auth = getAuth(app);
+              const database = getDatabase(app)
 
+              /////////////////////////////////////////////////////////////////////
+              const questions = [
+                     {
+                            question: "What is the first letter in the alphabet?",
+                            answers: [
+                                   { text: "A", correct: true },
+                                   { text: "B", correct: false },
+                                   { text: "C", correct: false },
+                                   { text: "D", correct: false }
+                            ]
+                     },
+                     {
+                            question: "What is the last letter in the alphabet?",
+                            answers: [
+                                   { text: "A", correct: false },
+                                   { text: "B", correct: false },
+                                   { text: "C", correct: false },
+                                   { text: "Z", correct: true }
+                            ]
+                     },
+                     // Add more questions here
+              ];
 
-                    let currentQuestionIndex = 0;
-                    let score = 0;
-
-                    function startQuiz() {
-                              currentQuestionIndex = 0;
-                              score = 0;
-                              nextButton.innerHTML = "Next";
-                              showQuestion();
-                    }
-
-                    function showQuestion() {
-                              resetState();
-                              let currentQuestion = questions[currentQuestionIndex];
-                              let questionNo = currentQuestionIndex + 1;
-                              questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
-
-                              currentQuestion.answers.forEach(answer => {
-                                        const button = document.createElement('button');
-                                        button.innerHTML = answer.text;
-                                        button.classList.add('btn');
-                                        answerButtons.appendChild(button);
-                                        if (answer.correct) {
-                                                  button.dataset.correct = answer.correct;
-                                        }
-                                        button.addEventListener('click', selectAnswer);
-                              });
-                    }
-
-                    function resetState() {
-                              nextButton.style.display = 'none';
-                              while (answerButtons.firstChild) {
-                                        answerButtons.removeChild(answerButtons.firstChild);
-                              }
-                    }
-
-                    function selectAnswer(e) {
-                              const selectedBtn = e.target;
-                              const isCorrect = selectedBtn.dataset.correct === 'true';
-
-                              Array.from(answerButtons.children).forEach(button => {
-                                        button.disabled = true; // Disable all buttons after an answer is selected
-                                        if (button.dataset.correct === 'true') {
-                                                  button.classList.add('correct');
-                                        } else if (button !== selectedBtn) {
-                                                  button.classList.add('incorrect');
-                                        }
-                              });
-
-                              if (isCorrect) {
-                                        selectedBtn.classList.add('correct');
-                                        score++;
-                              } else {
-                                        selectedBtn.classList.add('incorrect');
-                              }
-
-                              nextButton.style.display = "block";
-                    }
+              const contentDiv = document.querySelector('.container')
 
 
-                    function showScore() {
-                              resetState();
-                              questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-                              nextButton.innerHTML = 'Go Back';
 
-                              // Create a new <p> element for nextPara
-                              const nextPara = document.createElement('p');
-                              console.log(score)
-                              if (score > 1) {
-                                        nextPara.textContent = 'Very Good!';
-                              } else if (score < 1) {
-                                        nextPara.textContent = 'Better luck next time.';
-                              }
-                              else if (score == 1) {
-                                        nextPara.textContent = 'Keep it up';
-                              }
+              document.addEventListener('DOMContentLoaded', () => {
+                     const urlParams = new URLSearchParams(window.location.search);
+                     const section = urlParams.get('section');
 
-                              // Append the nextPara element to the document
-                              quizapp.appendChild(nextPara);
+                     if (section === 'quiz') {
+                            let score;
+                            contentDiv.innerHTML = `
+                                                  <div class="quiz-starter">
+                                                                           <button class="startQuiz">Start Daily Quiz</button>
+                                                                    </div>
+                                                                    <div class="quiz-starter">
+                                                                           <button class="startQuiz"><a href = 'quizgame.html' style ="text-decoration:none; color:#000">Start Quiz</a></button>
+                                                                    </div>
+                                                             <div class="app hidden">
+                                                                              <h1>Quiz</h1>
+                                                                              <div class="quiz">
+                                                                                       <h2 id="question"></h2>
+                                                                                      <div id="answer-buttons">
+                                                                                                 <button class="btn"></button>
+                                                                                                 <button class="btn"></button>
+                                                                                                 <button class="btn"></button>
+                                                                                                 <button class="btn"></button>
+                                                                                       </div>
+                                                                                       <button id="next-btn">Next</button>
+                                                                        </div>
+                                                              </div>
+                                                              `
 
-                              nextButton.style.display = 'block';
-                    }
+                            const questionElement = document.getElementById('question');
+                            const answerButtons = document.getElementById('answer-buttons');
+                            const nextButton = document.getElementById('next-btn');
+
+                            const quizapp = document.querySelector('.app');
+                            const quizStarter = document.querySelector('.quiz-starter')
 
 
-                    function handleNextButton() {
-                              currentQuestionIndex++;
-                              if (currentQuestionIndex < questions.length) {
-                                        showQuestion();
-                              } else {
-                                        showScore();
-                              }
-                    }
+                            let currentQuestionIndex = 0;
+                            score = 0;
 
-                    function endQuiz() {
-                              window.location.href = '../index.html?section=profile'
-                    }
+                            function startQuiz() {
+                                   currentQuestionIndex = 0;
+                                   score = 0;
+                                   nextButton.innerHTML = "Next";
+                                   showQuestion();
+                            }
 
-                    nextButton.addEventListener('click', () => {
-                              if (nextButton.innerHTML === 'Go Back') {
-                                        startQuiz();
-                              } else {
-                                        handleNextButton();
-                              }
-                    });
-                    quizStarter.addEventListener('click', () => {
-                              quizapp.classList.remove('hidden');
-                              quizStarter.classList.add('hidden');
-                              startQuiz();
-                    })
+                            function showQuestion() {
+                                   resetState();
+                                   let currentQuestion = questions[currentQuestionIndex];
+                                   let questionNo = currentQuestionIndex + 1;
+                                   questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
-          </script>
+                                   currentQuestion.answers.forEach(answer => {
+                                          const button = document.createElement('button');
+                                          button.innerHTML = answer.text;
+                                          button.classList.add('btn');
+                                          answerButtons.appendChild(button);
+                                          if (answer.correct) {
+                                                 button.dataset.correct = answer.correct;
+                                          }
+                                          button.addEventListener('click', selectAnswer);
+                                   });
+                            }
+
+                            function resetState() {
+                                   nextButton.style.display = 'none';
+                                   while (answerButtons.firstChild) {
+                                          answerButtons.removeChild(answerButtons.firstChild);
+                                   }
+                            }
+
+                            function selectAnswer(e) {
+                                   const selectedBtn = e.target;
+                                   const isCorrect = selectedBtn.dataset.correct === 'true';
+
+                                   Array.from(answerButtons.children).forEach(button => {
+                                          button.disabled = true; // Disable all buttons after an answer is selected
+                                          if (button.dataset.correct === 'true') {
+                                                 button.classList.add('correct');
+                                          } else if (button !== selectedBtn) {
+                                                 button.classList.add('incorrect');
+                                          }
+                                   });
+
+                                   if (isCorrect) {
+                                          selectedBtn.classList.add('correct');
+                                          score++;
+                                   } else {
+                                          selectedBtn.classList.add('incorrect');
+                                   }
+
+                                   nextButton.style.display = "block";
+                            }
+
+
+                            function showScore() {
+                                   resetState();
+                                   questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+                                   nextButton.innerHTML = 'Leaderboards';
+
+                                   // Create a new <p> element for nextPara
+                                   const nextPara = document.createElement('p');
+                                   console.log(score);
+
+                                   if (score > 1) {
+                                          nextPara.textContent = 'Very Good!';
+                                   } else if (score < 1) {
+                                          nextPara.textContent = 'Better luck next time.';
+                                   }
+                                   else if (score == 1) {
+                                          nextPara.textContent = 'Keep it up';
+                                   }
+
+                                   // Append the nextPara element to the document
+                                   quizapp.appendChild(nextPara);
+
+                                   nextButton.style.display = 'block';
+
+
+                            }
+
+
+                            function handleNextButton() {
+                                   currentQuestionIndex++;
+                                   if (currentQuestionIndex < questions.length) {
+                                          showQuestion();
+                                   } else {
+                                          showScore();
+                                   }
+                            }
+
+                            function endQuiz() {
+                                   const lastSubmissionTimestamp = localStorage.getItem('lastSubmissionTimestamp');
+                                   const currentTimestamp = new Date().toLocaleDateString();
+
+                                   if (lastSubmissionTimestamp === currentTimestamp) {
+                                          alert('You have already submitted a score today. Please try again tomorrow.');
+                                          return;
+                                   }
+                                   console.log(score)
+                                   localStorage.setItem('quizScore', score);
+                                   localStorage.setItem('lastSubmissionTimestamp', currentTimestamp);
+
+                                   window.location.href = 'quiz.html?section=leaderboards'
+                            }
+
+                            nextButton.addEventListener('click', () => {
+                                   const storedTimestamp = localStorage.getItem('quizCooldownTimestamp');
+                                   const todayTimestamp = new Date().setHours(0, 0, 0, 0);
+
+                                   if (nextButton.innerHTML === 'Leaderboards') {
+                                          if (storedTimestamp && parseInt(storedTimestamp) === todayTimestamp) {
+                                                 alert('You have already submitted a score today. Please try again tomorrow.');
+                                                 window.location.href = 'quiz.html?section=leaderboards'
+                                          } else {
+                                                 localStorage.setItem('quizCooldownTimestamp', todayTimestamp);
+                                                 endQuiz();
+                                          }
+                                   } else {
+                                          handleNextButton();
+                                   }
+
+                            }); quizStarter.addEventListener('click', () => {
+                                   quizapp.classList.remove('hidden');
+                                   quizStarter.classList.add('hidden');
+                                   console.log('clicked')
+                                   startQuiz();
+                            });
+
+                     } else if (section === 'leaderboards') {
+
+                            console.log('leaderboards')
+                            contentDiv.innerHTML = `
+                                                             <h1>Leaderboards </h1>
+                                                             <div class="leaderboard" id="leaderboard">
+                                                                      <button><a href = '../index.html?section=profile'>Go Back</a><button>
+                                                             </div>
+                                                                      `
+
+                            /////////////////////////////////////////////Getting the name from database //////////////////////////////////////////////////////////////////////////////////////////////
+
+                            const leaderboardContainer = document.getElementById('leaderboard');
+
+                            // Retrieve the stored score from localStorage
+                            const storedScore = parseInt(localStorage.getItem('quizScore'));
+
+                            const storedTimestamp = localStorage.getItem('quizCooldownTimestamp');
+                            const todayTimestamp = new Date().setHours(0, 0, 0, 0);
+
+
+                            // User has not submitted a score today, proceed with updating the leaderboard
+
+                            onAuthStateChanged(auth, (user) => {
+
+                                   const userUID = user.uid;
+                                   const userScoreRef = ref(database, `users/${userUID}/scores`);
+                                   const newScoreRef = push(userScoreRef); //create a uniqure key for the scrore
+
+                                   //save the users score and timestamp
+
+                                   set(newScoreRef, {
+                                          value: storedScore,
+                                          timestamp: {
+                                                 '.sv': 'timestamp' // This generates a server-side timestamp
+                                          }
+                                   });
+                                   // Reference to your Firebase Realtime Database 'users' node
+                                   const leaderboardRef = ref(database, 'users');
+                                   const scoresQuery = query(
+                                          leaderboardRef,
+                                          orderByChild('scores/value'), // Order scores by value
+                                          limitToLast(100) // Get the top 10 scores
+                                   );
+
+                                   // Fetch and update the leaderboard
+                                   get(scoresQuery).then((snapshot) => {
+                                          const topScores = [];
+                                          snapshot.forEach((childSnapshot) => {
+                                                 const userScore = childSnapshot.child('scores/value').val();
+                                                 const userName = childSnapshot.child('username').val(); // Assuming you have a 'username' field
+                                                 if (storedTimestamp && parseInt(storedTimestamp) === todayTimestamp) {
+                                                        topScores.push({ userName, userScore });
+                                                        // For example: leaderboardContainer.innerHTML = "You've already submitted a score today.";
+                                                 } else { console.log('already updated') }
+
+                                          });
+
+                                          // Update the UI with the topScores array
+                                   });
+
+                                   // Query the database to get the user's data
+                                   get(child(leaderboardRef, userUID)).then((snapshot) => {
+                                          if (snapshot.exists()) {
+                                                 const userData = snapshot.val();
+                                                 const userNameFromDatabase = userData.username;
+
+                                                 // Use the extracted 'userNameFromDatabase' value in your code
+                                                 console.log(userNameFromDatabase);
+
+                                                 const leaderboardData = [
+
+                                                        { name: userNameFromDatabase, score: storedScore }
+                                                 ]
+                                                 function updateLeaderboard() {
+
+                                                        leaderboardContainer.innerHTML = ''; //empty
+                                                        leaderboardData.sort((a, b) => b.score - a.score); //sorting data
+
+                                                        leaderboardData.forEach((player, index) => {
+                                                               const item = document.createElement('div');
+                                                               item.classList.add('leaderboard-item');
+                                                               item.innerHTML = `<span>${index + 1}. ${player.name}</span><span>${player.score} points</span>`;
+                                                               leaderboardContainer.appendChild(item);
+                                                        });
+                                                 }
+
+                                                 //Simulate a new score being added
+                                                 function addNewScore(playerName, newScore) {
+                                                        leaderboardData.push({ name: playerName, score: newScore });
+                                                        updateLeaderboard();
+                                                 }
+
+                                                 //simulate a player's score being updated
+                                                 function updatePlayerScore(playerName, updatedScore) {
+                                                        const player = leaderboardData.find(player => player.name === playerName);
+                                                        if (player) {
+                                                               player.score = updatedScore;
+                                                               updateLeaderboard();
+                                                        }
+                                                 }
+
+                                                 updateLeaderboard(); // Initial leaderboard display
+                                                 // Now you can use 'userNameFromDatabase' wherever you need it
+                                          } else {
+                                                 console.error('User data not found in the database');
+                                          }
+                                   });
+
+
+                            });
+
+
+                     }
+              })
+
+       </script>
 </body>
 
 </html>

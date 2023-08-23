@@ -9,7 +9,11 @@ const addBlog = document.querySelector('.add-blog');
 const openChatButton = document.querySelector('#chat-opener');
 const chatSystem = document.querySelector('.chat-body');
 const chatBody = document.getElementById('chat-body');
-const exitChat = document.querySelector('.back-chat')
+const exitChat = document.querySelector('.back-chat');
+const mediaElements = document.querySelectorAll('.media-element');
+const mediaScroller = document.querySelector('.media-scroller');
+const hiddenBlog = document.querySelector('.hidden-blog')
+
 
 function openPopup() {
   popupWindow.classList.toggle('hidden')
@@ -21,6 +25,17 @@ function openPopupCourses() {
 
 collapseBar.addEventListener('click', () => { openPopup(); popupWindowAllCourses.classList.add('hidden') })
 
+let currentPos = 0;
+
+function scrollImages() {
+  currentPos += mediaElements[0].clientWidth;
+  if (currentPos >= mediaScroller.scrollWidth) {
+    currentPos = 0;
+  }
+  mediaScroller.scrollTo(currentPos, 0);
+}
+
+setInterval(scrollImages, 3000); // Scroll every 5 seconds
 
 //  Creating a blog post
 addBlog.addEventListener('click', () => {
@@ -28,7 +43,6 @@ addBlog.addEventListener('click', () => {
 });
 
 postBlog.addEventListener('click', () => {
-  console.log('clicked');
 
   const card = document.createElement('div');
   card.classList.add('card');
@@ -91,19 +105,11 @@ signupLogin.addEventListener('click', () => {
   window.location.href = '../Login/login.html'
 });
 
-// for chat system
-openChatButton.addEventListener('click', () => {
-  chatSystem.classList.remove('hidden')
-});
 
 
 
 
 
-
-exitChat.addEventListener('click', () => {
-  chatSystem.classList.add('hidden')
-});
 
 
 
@@ -126,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (section === 'profile') {
     const body = document.querySelector('body');
     body.innerHTML = `
-          <!-- Your profile content here -->
+         Not available yet
         `;
   } else if (section === 'all-courses') {
 
@@ -135,18 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const purchasedContent = document.getElementById('purchasedContent');
   const otherContent = document.getElementById('otherContent');
 
-  if (purchasedProduct === 'pencil') {
-    purchasedContent.innerHTML = "<p>You have purchased a pencil!</p>";
-    purchasedContent.style.display = 'block';
-    otherContent.style.display = 'none';
-  } else if (purchasedProduct === 'pen') {
-    purchasedContent.innerHTML = "<p>You have purchased a pen!</p>";
-    purchasedContent.style.display = 'block';
-    otherContent.style.display = 'none';
-  } else {
-    otherContent.style.display = 'block';
-    purchasedContent.style.display = 'none';
-  }
 
   // Function to handle purchase logic
   function buyCourse(product) {
@@ -154,30 +148,3 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Purchased successfully')
   }
 });
-
-
-// Notification
-
-function showNotification() {
-  if (Notification.permission !== 'granted') {
-    Notification.requestPermission().then(function (permission) {
-      if (permission === 'granted') {
-        createNotification();
-      }
-    });
-  } else {
-    createNotification();
-  }
-}
-
-function createNotification() {
-  var notification = new Notification('My Notification', {
-    body: 'This is the body of the notification.',
-    icon: '../magzine/adv.png' // Path to an icon image
-  });
-
-  notification.onclick = function () {
-    // Action to perform when the notification is clicked
-    window.open('https://chat.openai.com/');
-  };
-}

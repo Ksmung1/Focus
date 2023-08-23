@@ -12,8 +12,8 @@ body {
           box-sizing: border-box;
           font-family: sans-serif;
           overflow-x: hidden;
-          background-color: rgb(122, 122, 239);
-          color: rgb(224, 224, 224);
+          background-color: #fff;
+          color: #000;
 }
 
 .hidden {
@@ -58,4 +58,21 @@ body {
           display: inline-block;
           width: 1em;
           margin-left: -1em;
+}
+
+.leaderboard {
+          width: 300px;
+          margin: 0 auto;
+}
+
+.leaderboard-item {
+          display: flex;
+          justify-content: space-between;
+          padding: 5px;
+          border-bottom: 1px solid #ccc;
+}
+
+.not-available {
+
+          text-decoration: underline;
 }

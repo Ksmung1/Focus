@@ -172,7 +172,23 @@ nav.top-banner span {
 .subscription p {
      font-size: 9px;
      color: black;
-     margin: 5px 10px 0;
+     margin: 5px 10px;
+}
+
+.subscription ul li:before {
+     content: '✅';
+     display: inline-block;
+}
+
+.subscription ul {
+     padding: 0 10px;
+}
+
+.subscription ul li {
+     font-size: 9px;
+     color: black;
+     margin: 5px 0;
+     list-style-type: none;
 }
 
 .subscription button {
@@ -418,7 +434,9 @@ ion-icon {
 
 /*  im[prtant */
 .media-scroller {
+     white-space: nowrap;
      display: grid;
+     position: relative;
      gap: 20px;
      grid-auto-flow: column;
      overflow-x: auto;
@@ -429,10 +447,8 @@ ion-icon {
      overflow-y: hidden;
 }
 
-
-
 .media-element {
-     display: grid;
+     display: inline-block;
      padding: 0;
      grid-template-rows: min-content;
      width: 340px;
@@ -440,7 +456,8 @@ ion-icon {
      gap: 4px;
      font-size: 13px;
      overflow-y: hidden;
-
+     vertical-align: top;
+     transition: opacity 1s ease-in-out;
 
 }
 
@@ -452,7 +469,6 @@ ion-icon {
 
 .snaps-inline {
      scroll-snap-type: inline mandatory;
-     scroll-padding-inline: var(--spacer, 1rem);
 }
 
 /* selecting all the direct children to snap */
@@ -462,29 +478,29 @@ ion-icon {
 }
 
 .blogs {
-     margin-top: 40px;
-     padding: 10px;
+     margin: 140px 0 40px;
+     padding: 0px;
      position: relative;
      /* background-color: rgba(0, 81, 243, 0.095); */
      background: linear-gradient(to bottom, transparent, rgba(0, 106, 255, 0.105), transparent);
-
+     font-size: 11px;
 }
 
+
 .blogs .card {
-     border: 1px solid #000;
-     padding: 10px;
-     margin: 10px;
+
+     padding: 0px;
+     margin-bottom: 150px;
+     cursor: pointer;
      display: flex;
-     gap: 10px;
+     flex-direction: column;
      border-radius: 5px;
 }
 
 .blogs .card .img-container {
-     min-height: 100px;
-     min-width: 100px;
-     max-height: 100px;
+
      overflow: hidden;
-     max-width: 100px;
+
 }
 
 .width {
@@ -529,16 +545,13 @@ ion-icon {
 }
 
 .content {
-     max-height: 3em;
-     /* Adjust this to show a few lines of text */
-     overflow: hidden;
+
      position: relative;
 }
 
 .content p {
-     margin: 10px 0 0 0;
+     margin: 10px 0 0 80px;
      padding: 0;
-     overflow: hidden;
      text-overflow: clip;
      display: -webkit-box;
      -webkit-line-clamp: 2;
@@ -556,14 +569,14 @@ ion-icon {
 
 
 .blog-poster {
-     min-height: 700px;
-     min-width: 50%;
-     max-width: 70%;
-     background-color: #403f3f;
+     width: 100%;
+     height: 100%;
      position: fixed;
-     top: 100px;
-     background-image: url(images/INDIAN\ ARMY.jpeg);
-     flex-direction: column;
+     top: 0px;
+     background-color: #fff;
+     color: #000;
+     font-size: 12px;
+     flex-direction: row;
      padding: 100px 10px;
 }
 
@@ -691,6 +704,8 @@ ion-icon {
      list-style: none;
 }
 
+
+
 .group-a li:before,
 .group-b li:before,
 .group-c li:before {
@@ -798,6 +813,8 @@ header {
      color: #000;
      border: none;
 }
+
+
 
 /* Add a media query for smaller screens, such as phones */
 @media screen and (max-width: 767px) {
