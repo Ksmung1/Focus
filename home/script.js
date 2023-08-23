@@ -59,10 +59,10 @@ function scrollImages() {
 
 setInterval(scrollImages, 3000); // Scroll every 5 seconds
 
-//  Creating a blog post
-addBlog.addEventListener('click', () => {
-  document.querySelector('.blog-poster').classList.toggle('hidden')
-});
+// //  Creating a blog post
+// addBlog.addEventListener('click', () => {
+//   document.querySelector('.blog-poster').classList.toggle('hidden')
+// });
 
 postBlog.addEventListener('click', () => {
 
@@ -285,12 +285,11 @@ In conclusion, cracking the SSB interview demands more than just intellectual pr
                     </div>
 
                     `
-      window.addEventListener('popstate', function (event) {
-        // This function will be called when the user goes back in history
-        // You can add your own code here to handle the back action
-        // For example, you might want to redirect the user or perform certain actions
-        window.location.href = '../index.html'
+      window.addEventListener('beforeunload', function (event) {
+        // You can display a custom confirmation message here
+        event.returnValue = "Are you sure you want to leave?"; // This message might not be shown in all browsers
       });
+
 
     } else if (cardId === 'article2') {
       blogContainer.classList.remove('hidden');
