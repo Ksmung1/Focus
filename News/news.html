@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Focus</title>
+</head>
+
+<body>
+          <div class="container"></div>
+
+          <script type="module">
+
+                    document.addEventListener('DOMContentLoaded', () => {
+
+                              const container = document.querySelector('.container')
+
+                              const urlParams = new URLSearchParams(window.location.search);
+                              const section = urlParams.get('section');
+
+                              if (section === 'hinduTimes') {
+                                        container.innerHTML = `
+                                        <h4>August</h4>
+                                        <h3>Hindu Times</h3>
+                                        <a href="../magzine/Hindu_Delhi_22-08-2023.pdf" download="image.pdf">
+    <button>22/08/2023</button>
+</a>
+<a href="../magzine/Hindu_Delhi_23-08-2023.pdf" download="image.pdf">
+    <button>23/08/2023</button>
+</a>
+
+                              
+                                        `
+                                        const openImageButton = document.getElementById('open-image-button');
+                                        const imageElement = document.getElementById('image');
+
+                                        openImageButton.addEventListener('click', function () {
+                                                  // Set the source of the image
+                                                  imageElement.src = '../magzine/adv.png'; // Replace with the actual path of your image
+
+                                                  // Show the image
+                                                  imageElement.style.display = 'block';
+                                        });
+
+                              }
+
+                    });
+
+
+
+          </script>
+</body>
+
+</html>
