@@ -2,54 +2,162 @@
 <html lang="en">
 
 <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Focus</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
-          <div class="container"></div>
+    <div class="container"></div>
 
-          <script type="module">
+    <script type="module">
 
-                    document.addEventListener('DOMContentLoaded', () => {
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+        import { getDatabase, push, set, ref, query, orderByChild, limitToLast, get, child } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js';
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
+        import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-storage.js";
 
-                              const container = document.querySelector('.container')
+        // Initialize Firebase with your configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyABVW_aeaSCOI5xxWS3y3kffqdvgfkJJrE",
+            authDomain: "focus-f58ac.firebaseapp.com",
+            projectId: "focus-f58ac",
+            storageBucket: "focus-f58ac.appspot.com",
+            messagingSenderId: "485165420551",
+            appId: "1:485165420551:web:28940675b55fc967e5daa2",
+            measurementId: "G-2VV0W1FJ9Z"
+        };
+        const app = initializeApp(firebaseConfig);
 
-                              const urlParams = new URLSearchParams(window.location.search);
-                              const section = urlParams.get('section');
+        // Get a reference to the Firebase Realtime Database
+        const database = getDatabase(app);
+        const auth = getAuth(app);
+        const storage = getStorage(app);
 
-                              if (section === 'hinduTimes') {
-                                        container.innerHTML = `
-                                        <h4>August</h4>
-                                        <h3>Hindu Times</h3>
-                                        <a href="../magzine/Hindu_Delhi_22-08-2023.pdf" download="image.pdf">
-    <button>22/08/2023</button>
-</a>
-<a href="../magzine/Hindu_Delhi_23-08-2023.pdf" download="image.pdf">
-    <button>23/08/2023</button>
-</a>
+        function loadContents() {
+            const container = document.querySelector('.container');
 
-                              
-                                        `
-                                        const openImageButton = document.getElementById('open-image-button');
-                                        const imageElement = document.getElementById('image');
+            const urlParams = new URLSearchParams(window.location.search);
+            const section = urlParams.get('section');
 
-                                        openImageButton.addEventListener('click', function () {
-                                                  // Set the source of the image
-                                                  imageElement.src = '../magzine/adv.png'; // Replace with the actual path of your image
+            if (section === 'hinduTimes') {
+                container.innerHTML =
+                    `
+                    <h4>August</h4>
+                    <h3>Hindu Times</h3>
+                    <div class="newsPdf" id='newsPdfContainer'></div>
+                    <button id='addButton'>Add Button</button>
+                    <div class='popup hidden'>
+                        <input id="pdf-input" type="file">
+                        <input type="date" placeholder='dd/mm/yy' id='addDate'>
+                        <button id='addNews'>Add news</button>
+                  </div>
+                `
 
-                                                  // Show the image
-                                                  imageElement.style.display = 'block';
-                                        });
+                const newsPdfContainer = document.getElementById('newsPdfContainer');
+                const addNewsButton = document.getElementById('addNews');
+                const pdfInput = document.getElementById('pdf-input');
+                const addDateInput = document.getElementById('addDate');
+                const popup = document.querySelector('.popup');
+                const form = document.querySelector('form')
 
-                              }
-
+                const newsRef = ref(database, 'news')
+                get(newsRef).then((snapshot) => {
+                    snapshot.forEach((childSnapshot) => {
+                        const newsData = childSnapshot.val();
+                        addPdfEntry(newsData.pdfSrc, newsData.date);
                     });
+                });
+
+                addButton.addEventListener('click', () => {
+                    popup.classList.remove('hidden');
+                });
+
+                let pdfUrl
 
 
+                // Initialize Firebase and get a reference to the storage bucket
+                // Select the image file input from the HTML
 
-          </script>
+                // Listen for changes in the file input
+                pdfInput.addEventListener("change", async (event) => {
+                    const file = event.target.files[0];
+
+                    if (file) {
+                        // Upload the image to Firebase Storage
+                        const storageRef = ref(storage, "pdfs/" + file.name);
+                        await uploadBytes(storageRef, file);
+                        // Get the download URL of the uploaded image
+                        pdfUrl = await getDownloadURL(storageRef);
+
+                        // Use the imageUrl to display the image in your app
+                    }
+                });
+
+                // Inside the addNewsButton.addEventListener
+                addNewsButton.addEventListener('click', () => {
+                    if (pdfUrl) {
+
+                        const date = addDateInput.value;
+
+                        const pdfData = {
+                            pdfSrc: pdfUrl, // Use the public URL
+                            date: date
+                        };
+
+                        onAuthStateChanged(auth, (user) => {
+                            if (user) {
+                                const newsRef = ref(database, 'news');
+                                push(newsRef, pdfData)
+                                    .then(() => {
+                                        addPdfEntry(pdfUrl, date);
+                                        console.log('Successfully uploaded and added to database');
+                                    })
+                                    .catch(error => {
+                                        console.error('Error adding data:', error);
+                                    });
+                            } else {
+                                console.error('User not detected');
+                            }
+                        });
+
+                    }
+                });
+
+
+                // Retrieve news data from the Firebase Realtime Database
+                get(newsRef).then((snapshot) => {
+                    snapshot.forEach((childSnapshot) => {
+                        const newsData = childSnapshot.val();
+                        addPdfEntry(newsData.pdfSrc, newsData.date);
+                    });
+                });
+
+                function addPdfEntry(pdfSrc, date) {
+                    const pdfList = document.querySelector('.newsPdf');
+                    const pdfEntry = document.createElement('div');
+                    pdfEntry.classList.add('pdf-list');
+                    pdfEntry.innerHTML = `
+        <embed src="${pdfSrc}" type="application/pdf" width="100" height="100" /> <!-- Use width and height as needed -->
+        <div>
+            <p><strong>The Hindu- New Delhi</strong></p>
+            <button>${date}</button>
+            <p>123</p>
+        </div>`;
+                    pdfList.prepend(pdfEntry, pdfList.firstChild); // Add new entry at the beginning
+
+                    popup.classList.add('hidden')
+                }
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => loadContents())
+
+    </script>
 </body>
 
 </html>

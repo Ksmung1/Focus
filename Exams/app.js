@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const technicalelements = [{
 
       title: 'Agniveer Technical Exam',
-      imgURL: 'images/Picsart_23-08-14_21-26-51-369.jpg',
+      imgURL: 'images/Picsart_23-08-15_11-44-00-547.jpg',
       paragraph: `<div class=pbox>
                               <table class="exam-info-table">
                                          <tr>
@@ -370,7 +370,7 @@ techx                                         </tr>
     const capfelements = [{
 
       title: 'Agniveer Clerk Exam',
-      imgURL: 'images/Picsart_23-08-14_21-26-51-369.jpg',
+      imgURL: 'images/Picsart_23-08-15_11-44-00-547.jpg',
       paragraph: `<div class=pbox>
                               <table class="exam-info-table">
                                          <tr>
