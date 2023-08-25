@@ -19,7 +19,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
         import { getDatabase, push, set, ref, query, orderByChild, limitToLast, get, child } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js';
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
-        import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-storage.js";
+        import { getStorage, ref as sRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-storage.js";
 
         // Initialize Firebase with your configuration
         const firebaseConfig = {
@@ -65,7 +65,7 @@
                 const popup = document.querySelector('.popup');
                 const form = document.querySelector('form')
 
-                const newsRef = ref(database, 'news')
+                const newsRef = ref(database, 'news2')
                 get(newsRef).then((snapshot) => {
                     snapshot.forEach((childSnapshot) => {
                         const newsData = childSnapshot.val();
@@ -77,7 +77,7 @@
                     popup.classList.remove('hidden');
                 });
 
-                let pdfUrl
+                let pdfUrl;
 
 
                 // Initialize Firebase and get a reference to the storage bucket
@@ -89,7 +89,7 @@
 
                     if (file) {
                         // Upload the image to Firebase Storage
-                        const storageRef = ref(storage, "pdfs/" + file.name);
+                        const storageRef = sRef(storage, "pdfs/" + file.name);
                         await uploadBytes(storageRef, file);
                         // Get the download URL of the uploaded image
                         pdfUrl = await getDownloadURL(storageRef);
@@ -111,7 +111,7 @@
 
                         onAuthStateChanged(auth, (user) => {
                             if (user) {
-                                const newsRef = ref(database, 'news');
+                                const newsRef = ref(database, 'news2');
                                 push(newsRef, pdfData)
                                     .then(() => {
                                         addPdfEntry(pdfUrl, date);
@@ -141,17 +141,23 @@
                     const pdfList = document.querySelector('.newsPdf');
                     const pdfEntry = document.createElement('div');
                     pdfEntry.classList.add('pdf-list');
+
+                    // Check if pdfSrc is valid before using it
+                    const isValidPdfSrc = pdfSrc && typeof pdfSrc === 'string' && pdfSrc.startsWith('https://');
+
                     pdfEntry.innerHTML = `
-        <embed src="${pdfSrc}" type="application/pdf" width="100" height="100" /> <!-- Use width and height as needed -->
-        <div>
-            <p><strong>The Hindu- New Delhi</strong></p>
-            <button>${date}</button>
-            <p>123</p>
-        </div>`;
+    <embed src="${isValidPdfSrc ? pdfSrc : ''}" type="application/pdf" width="100" height="100" /> <!-- Use width and height as needed -->
+    <div>
+        <p><strong>The Hindu- New Delhi</strong></p>
+        <button>${date}</button>
+        ${isValidPdfSrc ? `<a href="${pdfSrc}" download="${date}.pdf"><button>Download</button></a>` : ''}
+    </div>`;
+
                     pdfList.prepend(pdfEntry, pdfList.firstChild); // Add new entry at the beginning
 
-                    popup.classList.add('hidden')
+                    popup.classList.add('hidden');
                 }
+
             }
         };
 
