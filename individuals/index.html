@@ -51,34 +51,33 @@
 
                               const urlParams = new URLSearchParams(window.location.search);
                               const section = urlParams.get('section');
+                              const content = urlParams.get('content');
 
-                              const contentDiv = document.querySelector('.container');
+                              const container = document.querySelector('.container');
 
 
 
-                              if (section === "all-courses") {
-
+                              if (section === "exams") {
                                         console.log('All courses');
                                         const elements = [{
                                                   title: 'ALL Courses',
                                                   paragraph1: `<div class='card'>
-                              <h3>JOBS</h3>
-                              <ul>
-                              <li><a href = '../Exams/index.html?'>Defence Exams</a></li>
-                              <li><a>SSC CGL</a></li>
-                              <li><a>Regulatory</a></li>
-                              <li><a>UPSC</a></li>
-                              </ul>
-                              </div>`,
+                                                                <h3>JOBS</h3>
+                                                               <ul>
+                                                                      <li><a href='index.html?content=defenceExams'>Defence Exams</a></li>
+                                                              <li><a>SSC CGL</a></li>
+                                                             <li><a>Regulatory</a></li>
+                                                              <li><a>UPSC</a></li>
+                                                              </ul>
+                                                              </div>`,
                                                   paragraph2: `<div class='card'>
                                                             <h3>ENTRANCES</h3>
                                                             <ul>
                                                             <li><a>JEE</a></li>
                                                             <li><a>NEET</a></li>
                                                             </ul></div>
-                                                            
-                                                          
                                                             `
+
                                         }];
 
 
@@ -88,17 +87,16 @@
                     <div class='card-holder'>
                     ${element.paragraph1 + element.paragraph2}
                     </div>`).join('')
-                                        contentDiv.innerHTML = `${allCoursesContent}`
+                                        container.innerHTML = `${allCoursesContent}`
 
 
 
 
-                                        //////////////////////////////////NEWS SECTION ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+                              }
+                              else if (section === "dailyQuizzes") {
 
-                              } else if (section === "dailyQuizzes") {
-
-                                        contentDiv.innerHTML = `
+                                        container.innerHTML = `
                                                                                 <button style = 'background: #fff;border: none; color: Black; font-size: 15px; margin: 100px 0 100px 50px'><a href='../quiz/quiz.html?section=quiz'>Take Quiz</a></button>
                                                                                 <button style = 'background: #fff;border: none; color: Black; font-size: 15px; margin: 100px 0 100px 50px'><a href='../quiz/quiz.html?section=leaderboards'>Leaderboards</a></button>                                        
                                                             `
@@ -107,7 +105,7 @@
 
                               } else if (section === "news") {
                                         console.log('news');
-                                        contentDiv.innerHTML = `
+                                        container.innerHTML = `
                                         <ul class='newsUl'>
                                         <a href = '../News/news.html?section=hinduTimes'> <li><h3>The Hindu</h3></li></a>
                                         <li><h3>Economic times</h3></li>
@@ -129,6 +127,66 @@
                               }
 
 
+
+
+
+
+
+                              if (content === 'defenceExams') {
+
+                                        container.innerHTML = `
+                                        <div class="">
+                              <h6 class="EXAMS">DEFENCE EXAMS</h6>
+                              <div class=" group-exams">
+
+                                        <div class="group-a">
+                                                  <h6>Group-A <br><span style="font-size: 10px; font-weight: 400;">
+                                                                      (10th
+                                                                      pass)</span></h6>
+
+                                                  <ul>
+                                                            <li><a href="Exams/index.html?section=agniveer">Agniveer
+                                                                                GD</a>
+                                                            </li>
+                                                            <li><a href="Exams/index.html?section=sscGd">SSC GD</a></li>
+                                                  </ul>
+                                        </div>
+                                        <div class="group-b">
+                                                  <h6>Group-B<br><span style="font-size: 10px; font-weight: 400;"> (12th
+                                                                      Pass)</span></h6>
+                                                  <ul>
+                                                            <li><a href="Exams/index.html?section=nda">NDA & NA</a></li>
+                                                            <li><a href="Exams/index.html?section=armyTes">ARMY TES</a>
+                                                            </li>
+                                                            <li><a href="Exams/index.html?section=agniveerTechnical">Agniveer
+                                                                                Technical
+                                                                      </a></li>
+
+                                                            <li><a href="Exams/index.html?section=agniveerClerk">Agniveer
+                                                                                Clerk</a>
+                                                            </li>
+                                                  </ul>
+                                        </div>
+                                        <div class="group-c">
+                                                  <h6>Group-C<br><span style="font-size: 10px; font-weight: 400;">
+                                                                      (Graduate)</span></h6>
+                                                  <ul>
+                                                            <li><a href="Exams/index.html?section=cds">CDS</a></li>
+                                                            <li><a href="Exams/index.html?section=capf">CAPF</a></li>
+                                                            <li><a href="Exams/index.html?section=afcat">AFCAT</a></li>
+                                                            <li><a href="Exams/index.html?section=ib">IB ACIO</a></li>
+                                                            <li><a href="Exams/index.html?section=ssc">SSC CPO</a></li>
+                                                  </ul>
+                                        </div>
+                              </div>
+                    </div>
+
+                                        `
+
+
+                                        // const encodedContent = encodeURIComponent(content);
+
+                              }
                     });
           </script>
 </body>
