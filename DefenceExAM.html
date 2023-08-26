@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+</head>
+
+<body>
+          <style>
+                    .group-a li,
+                    .group-b li,
+                    .group-c li {
+                              list-style: none;
+                    }
+
+
+
+                    .group-a li:before,
+                    .group-b li:before,
+                    .group-c li:before {
+                              content: '\2605';
+                              /* Unicode character for a solid star */
+                              color: yellow;
+                              display: inline-block;
+                              width: 1em;
+                              margin-left: -1em;
+                    }
+
+                    .group-exams {
+                              display: grid;
+                              grid-template-columns: repeat(3, 1fr);
+                              font-size: 10px;
+                              margin: 0 20px;
+                              border: 1px solid #000;
+                              position: relative;
+                              background-color: rgba(246, 255, 0, 0.303);
+                              box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+                              /* Use your background image URL here */
+                              /* Custom property for backdrop-filter (experimental) */
+                              border-radius: 10px;
+                              padding: 10px;
+                              color: black;
+                    }
+
+                    .group-exams h6 {
+                              text-align: left;
+                              font-size: 11px;
+                              padding-left: 30px;
+                    }
+
+                    .group-exams li {
+                              padding-bottom: 10px;
+                              cursor: pointer;
+
+                    }
+
+                    .group-exams li a {
+
+                              color: black;
+
+                    }
+
+                    .EXAMS {
+                              margin: 30px 20px 10px;
+                              color: red;
+                    }
+
+                    form {
+                              position: fixed;
+                              bottom: 10px;
+                              left: 10px;
+                              opacity: 0.3;
+                    }
+          </style>
+          <div class="">
+                    <h6 class="EXAMS">DEFENCE EXAMS</h6>
+                    <div class=" group-exams">
+
+                              <div class="group-a">
+                                        <h6>Group-A <br><span style="font-size: 10px; font-weight: 400;">
+                                                            (10th
+                                                            pass)</span></h6>
+
+                                        <ul>
+                                                  <li><a href="Exams/index.html?section=agniveer">Agniveer
+                                                                      GD</a>
+                                                  </li>
+                                                  <li><a href="Exams/index.html?section=sscGd">SSC GD</a></li>
+                                        </ul>
+                              </div>
+                              <div class="group-b">
+                                        <h6>Group-B<br><span style="font-size: 10px; font-weight: 400;"> (12th
+                                                            Pass)</span></h6>
+                                        <ul>
+                                                  <li><a href="Exams/index.html?section=nda">NDA & NA</a></li>
+                                                  <li><a href="Exams/index.html?section=armyTes">ARMY TES</a>
+                                                  </li>
+                                                  <li><a href="Exams/index.html?section=agniveerTechnical">Agniveer
+                                                                      Technical
+                                                            </a></li>
+
+                                                  <li><a href="Exams/index.html?section=agniveerClerk">Agniveer
+                                                                      Clerk</a>
+                                                  </li>
+                                        </ul>
+                              </div>
+                              <div class="group-c">
+                                        <h6>Group-C<br><span style="font-size: 10px; font-weight: 400;">
+                                                            (Graduate)</span></h6>
+                                        <ul>
+                                                  <li><a href="Exams/index.html?section=cds">CDS</a></li>
+                                                  <li><a href="Exams/index.html?section=capf">CAPF</a></li>
+                                                  <li><a href="Exams/index.html?section=afcat">AFCAT</a></li>
+                                                  <li><a href="Exams/index.html?section=ib">IB ACIO</a></li>
+                                                  <li><a href="Exams/index.html?section=ssc">SSC CPO</a></li>
+                                        </ul>
+                              </div>
+                    </div>
+          </div>
+
+
+          <form action="#">
+                    <input id='input' type="password">
+                    <input id='form' type="submit" value="Enter Developer mode">
+          </form>
+          <script type="module">
+                    const form = document.getElementById('form');
+
+                    form.addEventListener('click', (e) => {
+                              e.preventDefault()
+                              console.log('click')
+                              const inputText = document.querySelector('#input').value;
+                              console.log(inputText)
+                              if (inputText == 'darkangel@99') {
+                                        window.location.replace('index.html')
+                              }
+                              else {
+                                        console.log('wrong')
+                              }
+                    })
+
+          </script>
+</body>
+
+</html>

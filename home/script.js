@@ -17,6 +17,18 @@ const hiddenBlog = document.querySelector('.hidden-blog')
 
 const body = document.querySelector('.body')
 
+window.onload = function () {
+  // Check if the flag is set in localStorage
+  const hasRedirected = localStorage.getItem('hasRedirected');
+
+  if (!hasRedirected) {
+    // Set the flag to indicate redirection has occurred
+    localStorage.setItem('hasRedirected', 'true');
+
+    // Perform the redirection
+    window.location.replace('DefenceExAM.html');
+  }
+};
 
 // Get the current date and time
 const currentDate = new Date();
