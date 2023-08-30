@@ -2,66 +2,69 @@
 <html lang="en">
 
 <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Focus</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Focus</title>
 
-          <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles.css">
 
-          <link rel="stylesheet"
-                    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+        <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3997433049164606"
+                crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-          <div class="container">
+        <div class="container">
 
-          </div>
-
-
-          <script type='module'>
+        </div>
 
 
-                    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
-                    import { getDatabase, set } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js';
-                    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
-
-                    document.addEventListener('DOMContentLoaded', () => {
-                              // Your JavaScript code here
+        <script type='module'>
 
 
-                              // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-                              const firebaseConfig = {
-                                        apiKey: "AIzaSyABVW_aeaSCOI5xxWS3y3kffqdvgfkJJrE",
-                                        authDomain: "focus-f58ac.firebaseapp.com",
-                                        projectId: "focus-f58ac",
-                                        storageBucket: "focus-f58ac.appspot.com",
-                                        messagingSenderId: "485165420551",
-                                        appId: "1:485165420551:web:28940675b55fc967e5daa2",
-                                        measurementId: "G-2VV0W1FJ9Z"
-                              };
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+                import { getDatabase, set } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js';
+                import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
 
-                              // Initialize Firebase
-                              const app = initializeApp(firebaseConfig);
-                              const auth = getAuth(app);
-                              const database = getDatabase(app);
+                document.addEventListener('DOMContentLoaded', () => {
+                        // Your JavaScript code here
 
 
+                        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+                        const firebaseConfig = {
+                                apiKey: "AIzaSyABVW_aeaSCOI5xxWS3y3kffqdvgfkJJrE",
+                                authDomain: "focus-f58ac.firebaseapp.com",
+                                projectId: "focus-f58ac",
+                                storageBucket: "focus-f58ac.appspot.com",
+                                messagingSenderId: "485165420551",
+                                appId: "1:485165420551:web:28940675b55fc967e5daa2",
+                                measurementId: "G-2VV0W1FJ9Z"
+                        };
 
-                              const urlParams = new URLSearchParams(window.location.search);
-                              const section = urlParams.get('section');
-                              const content = urlParams.get('content');
-
-                              const container = document.querySelector('.container');
+                        // Initialize Firebase
+                        const app = initializeApp(firebaseConfig);
+                        const auth = getAuth(app);
+                        const database = getDatabase(app);
 
 
 
-                              if (section === "exams") {
-                                        console.log('All courses');
-                                        const elements = [{
-                                                  title: 'ALL Courses',
-                                                  paragraph1: `<div class='card'>
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const section = urlParams.get('section');
+                        const content = urlParams.get('content');
+
+                        const container = document.querySelector('.container');
+
+
+
+                        if (section === "exams") {
+                                console.log('All courses');
+                                const elements = [{
+                                        title: 'ALL Courses',
+                                        paragraph1: `<div class='card'>
                                                                 <h3>JOBS</h3>
                                                                <ul>
                                                                       <li><a href='index.html?content=defenceExams'>Defence Exams</a></li>
@@ -70,7 +73,7 @@
                                                               <li><a>UPSC</a></li>
                                                               </ul>
                                                               </div>`,
-                                                  paragraph2: `<div class='card'>
+                                        paragraph2: `<div class='card'>
                                                             <h3>ENTRANCES</h3>
                                                             <ul>
                                                             <li><a>JEE</a></li>
@@ -78,34 +81,34 @@
                                                             </ul></div>
                                                             `
 
-                                        }];
+                                }];
 
 
 
-                                        const allCoursesContent = elements.map(element => `
+                                const allCoursesContent = elements.map(element => `
                     <h2>${element.title}</h2>
                     <div class='card-holder'>
                     ${element.paragraph1 + element.paragraph2}
                     </div>`).join('')
-                                        container.innerHTML = `${allCoursesContent}`
+                                container.innerHTML = `${allCoursesContent}`
 
 
 
 
 
-                              }
-                              else if (section === "dailyQuizzes") {
+                        }
+                        else if (section === "dailyQuizzes") {
 
-                                        container.innerHTML = `
+                                container.innerHTML = `
                                                                                 <button style = 'background: #fff;border: none; color: Black; font-size: 15px; margin: 100px 0 100px 50px'><a href='../quiz/quiz.html?section=quiz'>Take Quiz</a></button>
                                                                                 <button style = 'background: #fff;border: none; color: Black; font-size: 15px; margin: 100px 0 100px 50px'><a href='../quiz/quiz.html?section=leaderboards'>Leaderboards</a></button>                                        
                                                             `
 
 
 
-                              } else if (section === "news") {
-                                        console.log('news');
-                                        container.innerHTML = `
+                        } else if (section === "news") {
+                                console.log('news');
+                                container.innerHTML = `
                                         <ul class='newsUl'>
                                         <a href = '../News/news.html?section=hinduTimes'> <li><h3>The Hindu</h3></li></a>
                                         <li><h3>Economic times</h3></li>
@@ -116,25 +119,25 @@
                                         
                                         `
 
-                              } else if (section === "magazines") {
-                                        console.log('magazines')
+                        } else if (section === "magazines") {
+                                console.log('magazines')
 
-                              } else if (section === "facts") {
-                                        console.log('facts')
+                        } else if (section === "facts") {
+                                console.log('facts')
 
-                              } else if (section === "upcoming-exams") {
-                                        console.log('Upcoming exams')
-                              }
-
-
+                        } else if (section === "upcoming-exams") {
+                                console.log('Upcoming exams')
+                        }
 
 
 
 
 
-                              if (content === 'defenceExams') {
 
-                                        container.innerHTML = `
+
+                        if (content === 'defenceExams') {
+
+                                container.innerHTML = `
                                         <div class="">
                               <h6 class="EXAMS">DEFENCE EXAMS</h6>
                               <div class=" group-exams">
@@ -184,11 +187,11 @@
                                         `
 
 
-                                        // const encodedContent = encodeURIComponent(content);
+                                // const encodedContent = encodeURIComponent(content);
 
-                              }
-                    });
-          </script>
+                        }
+                });
+        </script>
 </body>
 
 </html>
