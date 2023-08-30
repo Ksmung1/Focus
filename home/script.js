@@ -14,8 +14,6 @@ const mediaElements = document.querySelectorAll('.media-element');
 const mediaScroller = document.querySelector('.media-scroller');
 const hiddenBlog = document.querySelector('.hidden-blog')
 
-
-
 // Get the current date and time
 const currentDate = new Date();
 
@@ -34,7 +32,6 @@ const formattedTime = `${hours}:${minutes}:${seconds}`;
 // Display the current date and time
 console.log("Current Date:", formattedDate);
 console.log("Current Time:", formattedTime);
-
 
 function openPopup() {
   popupWindow.classList.toggle('hidden')
